@@ -1,5 +1,5 @@
 <core:FragmentDefinition xmlns="sap.m" xmlns:core="sap.ui.core">
-	<Dialog title="Copy the Details" showHeader="false" class="cl_confirmationDialog sapUiSizeCompact">
+	<Dialog title="Copy the Details" showHeader="false" class="cl_copyRowDialog sapUiSizeCompact">
 		<customHeader>
 			<Toolbar class="cl_ConfirmationToolbar" height="2.5rem">
 				<ToolbarSpacer/>

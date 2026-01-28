@@ -1,36 +1,51 @@
+/************************************************************************************************************************/
+/*	Style Name : Style.css                                                                                              */
+/*	Purpose    : Standard and common Style will added here                                                              */
+/*************************************************************************************************************************/
+
+/* ===========================
+   standary styles used
+   =========================== */
+
+/* ───────────────────────────────────────────── */
+/*   to remove the table right side corner style   */
+/* ───────────────────────────────────────────── */   
 .sapUiTableColHdrCnt {
     position: relative !important;
     z-index: 13;
     background: #e4fbff !important;
 }
-
 .sapUiTableVScr .sapUiTableVSbHeader {
     display: none !important;
 }
 
-
 /*background color for the screen*/
-
 .cl_mdbg {
     background-color: #ffffff !important;
 }
-
 .cl_mdbg.sapMPage>section {
     overflow-x: hidden !important;
 }
 
+/* ===========================
+   Delete Button
+   =========================== */
+.cl_AddDelete {
+    opacity: 0.5 !important;
+}
 
-/********************************************************************/
+/* ===========================
+    Border Box
+   =========================== */
+.cl_GdBox {
+    border: 1px solid #C1C1C1 !important;
+    border-radius: 1px;
+}
 
 
-/*                   Header Toolbar Styles                       */
-
-
-/********************************************************************/
 
 
 /* tool bar image fitting sytle */
-
 .cl_toolbar {
     background-image: url(../Image/navbar.svg)!important;
     opacity: 1;
@@ -1503,10 +1518,7 @@
     height: 1rem;
 }
 
-.cl_GdBox {
-    border: 1px solid #C1C1C1 !important;
-    border-radius: 1px;
-}
+
 
 .cl_tt_tableWf .sapUiTableCnt {
     box-sizing: border-box;
@@ -1520,51 +1532,6 @@
     border-radius: 10px !important;
 }
 
-.cl_MassBtn .sapMBtnInner.sapMBtnText .sapMBtnIcon {
-    margin-top: 2px;
-    padding-left: 2px;
-}
-
-.cl_MassBtn .sapMBtnDefault::before {
-    border: none !important;
-}
-
-.cl_MassBtn .sapMBtnInner {
-    background-color: #E5FCFF;
-    height: 20px !important;
-    font-family: Segoe UI;
-    font-size: 9px;
-    color: #4E4B66 !important;
-    align-items: center;
-    align-content: center;
-    justify-content: center;
-    border-radius: 3px;
-    border: 1px solid #3393A1 !important;
-    padding-right: 13px;
-    padding-left: 11px;
-    padding-bottom: 0.5px;
-}
-
-.cl_MassBtn .sapMBtnContent {
-    padding-right: 3px;
-}
-
-.cl_MassBtn.sapMBtn:hover>.sapMBtnHoverable {
-    /*background: linear-gradient(to right, #54BEBD , #0382A5 ) !important; */
-    background-color: #E5FCFF;
-}
-
-.cl_MassBtn.sapMBtn:hover:not(.sapMBtnDisabled):not(.sapMSBActive)>.sapMBtnHoverable:not(.sapMBtnDisabled):not(.sapMBtnActive):not(.sapMToggleBtnPressed):not(.sapMBtnTransparent).sapMBtnDefault,
-.sapMBtn:hover:not(.sapMBtnDisabled):not(.sapMSBActive)>.sapMBtnHoverable:not(.sapMBtnDisabled):not(.sapMBtnActive):not(.sapMToggleBtnPressed):not(.sapMBtnTransparent).sapMBtnGhost {
-    color: #4E4B66 !important;
-}
-
-.cl_MassBtn .sapMBtnIcon {
-    width: 16px !important;
-    height: 16px !important;
-    margin-top: 3px;
-    padding-bottom: 2px;
-}
 
 .cl_massIp {
     padding-left: 18px;
@@ -1871,13 +1838,6 @@
     max-height: 295px !important;
 }
 
-.cl_resdscroll .sapUiTableVSb {
-    max-height: 362px !important;
-}
-
-.cl_resdscroll.sapUiTable {
-    height: 24rem !important;
-}
 
 .cl_VarBox {
     border: 1px solid #ccc;
@@ -1969,9 +1929,6 @@
 
 /*Add and Delete row buttons*/
 
-.cl_AddDelete {
-    opacity: 0.5 !important;
-}
 
 
 /*Style to delete Focus on Images*/
@@ -3196,3 +3153,38 @@
 .cl_SelectDialog .sapMListUl {
     margin-top: 0.6rem;
 }
+
+
+/* ===========================
+   Confirmation Pop Up Dialog
+   =========================== */
+.cl_copyRowDialog .sapMDialogScroll {
+    display: contents !important;
+}
+.cl_copyRowDialog.sapMMessageDialog .sapMDialogScrollCont {
+    padding: 0rem !important;
+}
+.cl_copyRowDialog .sapMTBSpacer {
+    display: none;
+}
+.cl_copyRowDialog .sapMTB.sapMFooter-CTX {
+    background: #E8E8E8 !important;
+    align-content: center;
+    align-items: center;
+    justify-content: center;
+}
+.cl_copyRowDialog .sapMDialogScroll {
+    display: contents !important;
+}
+
+/* ===========================
+   Un wanted text
+   =========================== */
+/*.cl_resdscroll .sapUiTableVSb {*/
+/*    max-height: 362px !important;*/
+/*}*/
+
+/*.cl_resdscroll.sapUiTable {*/
+/*    height: 24rem !important;*/
+/*}*/
+

@@ -1,16 +1,186 @@
 .cl_mdbg {
     background-color: #ffffff;
 }
-
 .cl_mdbg.sapMPage>section {
     overflow-x: hidden !important;
 }
 
+/* ===========================
+   screen Header toolbar designs
+   =========================== */
+.cl_header_toolbar {
+    background-image: url(../Image/navbar.svg) !important;
+    border-bottom: none !important;
+    opacity: 1;
+    background-size: cover;
+}
+.cl_header_title {
+    font-family: 'Segoe UI' !important;
+    font-size: 14px !important;
+    color: #141414 !important;
+    font-weight: 500;
+    letter-spacing: 0.15px;
+}
+.cl_userid_font {
+    font-family: 'Segoe UI' !important;
+    font-size: 12px !important;
+    color: #4E4B66 !important;
+    letter-spacing: 0.15px;
+}
+/* ===========================
+   Common Input label Styles
+   =========================== */
+.cl_inputLabel {
+    font-family: "Segoe UI" !important;
+    font-size: 13px;
+    font-weight: 450;
+    color: #141414;
+}
+.cl_inputLabel .sapMLabelColonAndRequired::after {
+    color: #FF3030 !important;
+}
+
+/* ===========================
+   Common Input Field Styles
+   =========================== */
+.cl_inputField .sapMInputBaseInner {
+    font-family: "Segoe UI" !important;
+    font-size: 12px;
+    font-weight: 400;
+    color: #141414;
+}
+.cl_inputField .sapMInputBaseIcon::before {
+    color: #3393A1 !important;
+}
+.cl_inputField .sapMInputBaseContentWrapper {
+    box-shadow: none !important;
+    border-radius: 2px !important;
+    border: 1px solid #A8A7A7 !important;
+    background: none !important;
+}
+.cl_inputField .sapMInputBaseContentWrapper:not(.sapMInputBaseReadonlyWrapper):not(.sapMInputBaseContentWrapperState):not(.sapMInputBaseDisabledWrapper):hover {
+    border-color: #A8A7A7 !important;
+}
+.cl_inputField.sapMInputBase:not(.sapMFocus) .sapMInputBaseContentWrapper:not(.sapMInputBaseReadonlyWrapper):not(.sapMInputBaseContentWrapperState):not(.sapMInputBaseDisabledWrapper):hover {
+    border-color: #A8A7A7 !important;
+}
+.cl_inputField.sapMFocus.sapMInputBase .sapMInputBaseContentWrapper:not(.sapMInputBaseDisabledWrapper)::before {
+    border: none !important;
+}
+.cl_inputField.sapMInputBase.sapMInputBaseReadonly .sapMInputBaseInner {
+    background: #f3f3f3 !important;
+    color: #141414;
+}
+.cl_inputField.sapMInputBase.sapMInputBaseReadonly .sapMInputBaseContentWrapper {
+    background: #f3f3f3 !important;
+    border: 1px solid #A8A7A7 !important;
+}
+.cl_inputField .sapMInputBaseContentWrapperError {
+    background: var(--sapField_InvalidBackgroundStyle) !important;
+    background-color: var(--sapField_InvalidBackground) !important;
+    border: 1px solid #A8A7A7;
+    box-shadow: var(--sapField_InvalidShadow);
+}
+.cl_inputField.sapMInputBase.sapMInputBaseReadonly .sapMInputBaseContentWrapper {
+    background: #f3f3f3 !important;
+    border: 1px solid #A8A7A7;
+}
+.cl_inputField .sapMInputBaseInner::placeholder {
+    font-family: "Segoe UI" !important;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 12px;
+    height:24px;
+    letter-spacing: 0.15px;
+    text-transform: capitalize;
+    color: #9AA0A7;
+    opacity: 1;
+}
+
+/* ===========================
+   Common Primary Button style
+   =========================== */
+.cl_primaryButton .sapMBtnInner {
+    background: linear-gradient(to right, #54BEBD, #0382A5);
+    border: none;
+    border-radius: 4px;
+}
+.cl_primaryButton.sapMBtn:hover>.sapMBtnHoverable {
+    background: linear-gradient(to right, #54BEBD, #0382A5) !important;
+}
+.cl_primaryButton .sapMBtnIcon {
+    width: 0rem !important;
+}
+.cl_primaryButton .sapMBtnContent {
+    font-family: 'Segoe UI' !important;
+    font-size: 13px;
+    font-weight:400;
+    letter-spacing:0.6px;
+    color: #ffffff;
+}
+.cl_primaryButton .sapMBtnDefault::before {
+    border: none !important;
+}
+
+/* ===========================
+   Common Secondary Button style
+   =========================== */
+.cl_secondaryButton .sapMBtnInner {
+    background: linear-gradient(to right, #BBBBC5, #6D6D74);
+    border: none;
+    border-radius: 4px;
+}
+.cl_secondaryButton.sapMBtn:hover>.sapMBtnHoverable {
+    background: linear-gradient(to right, #BBBBC5, #6D6D74) !important;
+}
+.cl_secondaryButton .sapMBtnIcon {
+    width: 0rem !important;
+}
+.cl_secondaryButton .sapMBtnContent {
+    font-family: 'Segoe UI' !important;
+    font-size: 13px;
+    font-weight:400;
+    letter-spacing:0.6px;
+    color: #ffffff;
+}
+.cl_secondaryButton .sapMBtnDefault::before {
+    border: none !important;
+}
+
+/* ===========================
+   screen Header toolbar designs
+   =========================== */
+.cl_header_toolbar {
+    background-image: url(../Image/navbar.svg) !important;
+    border-bottom: none !important;
+    opacity: 1;
+    background-size: cover;
+}
+.cl_header_title {
+    font-family: 'Segoe UI' !important;
+    font-size: 14px !important;
+    color: #141414 !important;
+    font-weight: 500;
+    letter-spacing: 0.15px;
+}
+.cl_userid_font {
+    font-family: 'Segoe UI' !important;
+    font-size: 12px !important;
+    color: #4E4B66 !important;
+    letter-spacing: 0.15px;
+}
+
+/* ===========================
+   Remove the Bottom Tool bar styles
+   =========================== */
 .cl_toolbarBorderBottomRemove {
     border-bottom: none !important;
     padding: 0px;
 }
 
+/* ===========================
+   Each table Header level styles
+   =========================== */
 .cl_headerlabel {
     font-family: 'Segoe UI' !important;
     font-style: normal;
@@ -18,6 +188,64 @@
     color: #141414 !important;
     font-weight: 600 !important;
 }
+
+/* ===========================
+   new Small Button
+   =========================== */
+.cl_MassBtn .sapMBtnInner.sapMBtnText .sapMBtnIcon {
+    margin-top: 2px;
+    padding-left: 2px;
+}
+.cl_MassBtn .sapMBtnDefault::before {
+    border: none !important;
+}
+.cl_MassBtn .sapMBtnInner {
+    background-color: #E5FCFF;
+    height: 20px !important;
+    font-family: Segoe UI;
+    font-size: 9px;
+    color: #4E4B66 !important;
+    align-items: center;
+    align-content: center;
+    justify-content: center;
+    border-radius: 3px;
+    border: 1px solid #3393A1 !important;
+    padding-right: 13px;
+    padding-left: 11px;
+    padding-bottom: 0.5px;
+}
+.cl_MassBtn .sapMBtnContent {
+    padding-right: 3px;
+}
+.cl_MassBtn.sapMBtn:hover>.sapMBtnHoverable {
+    background-color: #E5FCFF;
+}
+.cl_MassBtn.sapMBtn:hover:not(.sapMBtnDisabled):not(.sapMSBActive)>.sapMBtnHoverable:not(.sapMBtnDisabled):not(.sapMBtnActive):not(.sapMToggleBtnPressed):not(.sapMBtnTransparent).sapMBtnDefault,
+.cl_MassBtn.sapMBtn:hover:not(.sapMBtnDisabled):not(.sapMSBActive)>.sapMBtnHoverable:not(.sapMBtnDisabled):not(.sapMBtnActive):not(.sapMToggleBtnPressed):not(.sapMBtnTransparent).sapMBtnGhost {
+    color: #4E4B66 !important;
+}
+.cl_MassBtn .sapMBtnIcon {
+    width: 16px !important;
+    height: 16px !important;
+    margin-top: 3px;
+    padding-bottom: 2px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 .cl_input .sapMInputBaseIconContainer .sapUiIcon.sapMInputBaseIcon {
     line-height: 2rem;
@@ -179,146 +407,7 @@
 .cl_uiTable .sapUiTableTr.sapUiTableRowSel:not(.sapUiTableGroupHeader)> td:not(.sapUiTableTDDummy) {
     background-color: #ebfcff !important;
 }
-/* ===========================
-   screen Header toolbar designs
-   =========================== */
-.cl_header_toolbar {
-    background-image: url(../Image/navbar.svg) !important;
-    border-bottom: none !important;
-    opacity: 1;
-    background-size: cover;
-}
-.cl_header_title {
-    font-family: 'Segoe UI' !important;
-    font-size: 14px !important;
-    color: #141414 !important;
-    font-weight: 500;
-    letter-spacing: 0.15px;
-}
-.cl_userid_font {
-    font-family: 'Segoe UI' !important;
-    font-size: 12px !important;
-    color: #4E4B66 !important;
-    letter-spacing: 0.15px;
-}
-/* ===========================
-   Common Input label Styles
-   =========================== */
-.cl_inputLabel {
-    font-family: "Segoe UI" !important;
-    font-size: 13px;
-    font-weight: 450;
-    color: #141414;
-}
-.cl_inputLabel .sapMLabelColonAndRequired::after {
-    color: #FF3030 !important;
-}
 
-/* ===========================
-   Common Input Field Styles
-   =========================== */
-.cl_inputField .sapMInputBaseInner {
-    font-family: "Segoe UI" !important;
-    font-size: 12px;
-    font-weight: 400;
-    color: #141414;
-}
-.cl_inputField .sapMInputBaseIcon::before {
-    color: #3393A1 !important;
-}
-.cl_inputField .sapMInputBaseContentWrapper {
-    box-shadow: none !important;
-    border-radius: 2px !important;
-    border: 1px solid #A8A7A7 !important;
-    background: none !important;
-}
-.cl_inputField .sapMInputBaseContentWrapper:not(.sapMInputBaseReadonlyWrapper):not(.sapMInputBaseContentWrapperState):not(.sapMInputBaseDisabledWrapper):hover {
-    border-color: #A8A7A7 !important;
-}
-.cl_inputField.sapMInputBase:not(.sapMFocus) .sapMInputBaseContentWrapper:not(.sapMInputBaseReadonlyWrapper):not(.sapMInputBaseContentWrapperState):not(.sapMInputBaseDisabledWrapper):hover {
-    border-color: #A8A7A7 !important;
-}
-.cl_inputField.sapMFocus.sapMInputBase .sapMInputBaseContentWrapper:not(.sapMInputBaseDisabledWrapper)::before {
-    border: none !important;
-}
-.cl_inputField.sapMInputBase.sapMInputBaseReadonly .sapMInputBaseInner {
-    background: #f3f3f3 !important;
-    color: #141414;
-}
-.cl_inputField.sapMInputBase.sapMInputBaseReadonly .sapMInputBaseContentWrapper {
-    background: #f3f3f3 !important;
-    border: 1px solid #A8A7A7 !important;
-}
-.cl_inputField .sapMInputBaseContentWrapperError {
-    background: var(--sapField_InvalidBackgroundStyle) !important;
-    background-color: var(--sapField_InvalidBackground) !important;
-    border: 1px solid #A8A7A7;
-    box-shadow: var(--sapField_InvalidShadow);
-}
-.cl_inputField.sapMInputBase.sapMInputBaseReadonly .sapMInputBaseContentWrapper {
-    background: #f3f3f3 !important;
-    border: 1px solid #A8A7A7;
-}
-.cl_inputField .sapMInputBaseInner::placeholder {
-    font-family: "Segoe UI" !important;
-    font-style: normal;
-    font-weight: 400;
-    font-size: 12px;
-    height:24px;
-    letter-spacing: 0.15px;
-    text-transform: capitalize;
-    color: #9AA0A7;
-    opacity: 1;
-}
-/* ===========================
-   Common Primary Button style
-   =========================== */
-.cl_primaryButton .sapMBtnInner {
-    background: linear-gradient(to right, #54BEBD, #0382A5);
-    border: none;
-    border-radius: 4px;
-}
-.cl_primaryButton.sapMBtn:hover>.sapMBtnHoverable {
-    background: linear-gradient(to right, #54BEBD, #0382A5) !important;
-}
-.cl_primaryButton .sapMBtnIcon {
-    width: 0rem !important;
-}
-.cl_primaryButton .sapMBtnContent {
-    font-family: 'Segoe UI' !important;
-    font-size: 13px;
-    font-weight:400;
-    letter-spacing:0.6px;
-    color: #ffffff;
-}
-.cl_primaryButton .sapMBtnDefault::before {
-    border: none !important;
-}
-
-/* ===========================
-   Common Secondary Button style
-   =========================== */
-.cl_secondaryButton .sapMBtnInner {
-    background: linear-gradient(to right, #BBBBC5, #6D6D74);
-    border: none;
-    border-radius: 4px;
-}
-.cl_secondaryButton.sapMBtn:hover>.sapMBtnHoverable {
-    background: linear-gradient(to right, #BBBBC5, #6D6D74) !important;
-}
-.cl_secondaryButton .sapMBtnIcon {
-    width: 0rem !important;
-}
-.cl_secondaryButton .sapMBtnContent {
-    font-family: 'Segoe UI' !important;
-    font-size: 13px;
-    font-weight:400;
-    letter-spacing:0.6px;
-    color: #ffffff;
-}
-.cl_secondaryButton .sapMBtnDefault::before {
-    border: none !important;
-}
 /* ===========================
    Confirmation Pop Up Dialog
    =========================== */
@@ -442,28 +531,7 @@
     background: #ffffff !important;
 }
 
-/* ===========================
-   screen Header toolbar designs
-   =========================== */
-.cl_header_toolbar {
-    background-image: url(../Image/navbar.svg) !important;
-    border-bottom: none !important;
-    opacity: 1;
-    background-size: cover;
-}
-.cl_header_title {
-    font-family: 'Segoe UI' !important;
-    font-size: 14px !important;
-    color: #141414 !important;
-    font-weight: 500;
-    letter-spacing: 0.15px;
-}
-.cl_userid_font {
-    font-family: 'Segoe UI' !important;
-    font-size: 12px !important;
-    color: #4E4B66 !important;
-    letter-spacing: 0.15px;
-}
+
 /* ===========================
    Common Table and Table Input Styles
    =========================== */

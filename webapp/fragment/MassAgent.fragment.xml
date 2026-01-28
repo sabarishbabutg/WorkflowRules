@@ -17,8 +17,8 @@
 		<VBox id="dynamicAgentBox" class="sapUiSmallMarginTop"></VBox>
 		</VBox>
 		<buttons>
-			<Button text="Ok" press="fn_massAgentChange" icon="{= ${JM_ImageModel>/path} + 'Apply.svg' }" class="cl_primaryButton sapUiSmallMarginEnd"/>
-			<Button text="Cancel" class="cl_secondaryButton" icon="{= ${JM_ImageModel>/path} + 'Cancel.svg' }" press="fn_massAgentCancel"/>
+			<Button text="Ok" press="fnsubmitMassAgentChange" icon="{= ${JM_ImageModel>/path} + 'Apply.svg' }" class="cl_primaryButton sapUiSmallMarginEnd"/>
+			<Button text="Cancel" class="cl_secondaryButton" icon="{= ${JM_ImageModel>/path} + 'Cancel.svg' }" press="fnCancelMassAgentChange"/>
 		</buttons>
 	</Dialog>
 </core:FragmentDefinition>

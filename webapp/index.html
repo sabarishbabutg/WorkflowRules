@@ -21,14 +21,19 @@
 		<link rel="stylesheet" type="text/css" href="css/Home.css">
 
 		<script>
-			sap.ui.getCore().attachInit(function() {
-				// new sap.m.Shell({
-					app: new sap.ui.core.ComponentContainer({
-						height : "100%",
-						name : "WorkflowRules"
-					// })
-				}).placeAt("content");
-			});
+			sap.ui.getCore().attachInit(function () {
+    		sap.ui.core.Component.create({
+        		name: "WorkflowRules",
+        		async: true
+    		}).then(function (oComponent) {
+        		new sap.m.Shell({
+            		app: new sap.ui.core.ComponentContainer({
+                	height: "100%",
+                	component: oComponent
+            	})
+        		}).placeAt("content");
+    		});
+		});
 		</script>
 	</head>
 
