@@ -1,0 +1,7 @@
+<core:FragmentDefinition xmlns="sap.m" xmlns:core="sap.ui.core">
+	<SelectDialog id="idVariantF4Dialog" title="{i18n>SelectVariant}" noDataText="No Variants Found" search="onVariantF4Search"
+		liveChange="onVariantF4Search" confirm=".onVariantF4Confirm" cancel=".onVariantF4Cancel"
+		class="sapUiPopupWithPadding sapUiSizeCompact cl_MaterialFrom " items="{WFViewModel>/variants}">
+		<StandardListItem title="{WFViewModel>Variant}" type="Active"/>
+	</SelectDialog>
+</core:FragmentDefinition>

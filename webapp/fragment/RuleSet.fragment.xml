@@ -1,0 +1,12 @@
+<core:FragmentDefinition xmlns="sap.m" xmlns:core="sap.ui.core">
+	<SelectDialog
+		title = "{i18n>RuleSet}" 
+		class="sapUiPopupWithPadding sapUiSizeCompact cl_refragment  "
+		items="{JM_RuleSet>/List}"
+		search="fnRuleSetSearch"
+		confirm="fnRuleSetClose"
+		liveChange="fnRuleSetSearch"
+		cancel ="fnRuleSetClose" >
+		<StandardListItem title="{JM_RuleSet>FmmDes}" />
+	</SelectDialog>
+</core:FragmentDefinition>

@@ -1,0 +1,20 @@
+<core:FragmentDefinition xmlns="sap.m" xmlns:core="sap.ui.core">
+	<Dialog id="idConfirmDialog" title="{CONFIRM_MODEL>/headerText}" showHeader="false" class="cl_confirmationDialog sapUiSizeCompact">
+		<customHeader>
+			<Toolbar class="cl_ConfirmationToolbar" height="2.5rem">
+				<ToolbarSpacer/>
+				<Text text="{CONFIRM_MODEL>/headerText}" class="cl_ConfirmationTitle sapUiTinyMarginTopBottom"/>
+				<ToolbarSpacer/>
+			</Toolbar>
+		</customHeader>
+		<HBox width="100%" justifyContent="Center">
+			<Text text="{CONFIRM_MODEL>/confirmationText}" class="sapUiSmallMargin cl_confirmationTxt"></Text>
+		</HBox>
+		<buttons>
+			<Button text="{CONFIRM_MODEL>/submitText}" icon="{= ${JM_ImageModel>/path} + ${CONFIRM_MODEL>/submitIcon} }" class="cl_primaryButton"
+				press=".onConfirmSubmit"/>
+			<Button text="{CONFIRM_MODEL>/cancelText}" icon="{= ${JM_ImageModel>/path} + ${CONFIRM_MODEL>/cancelIcon} }" class=" cl_secondaryButton"
+				press=".onConfirmCancel"/>
+		</buttons>
+	</Dialog>
+</core:FragmentDefinition>

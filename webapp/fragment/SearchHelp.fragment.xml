@@ -1,0 +1,7 @@
+<core:FragmentDefinition xmlns="sap.m" xmlns:core="sap.ui.core">
+	<SelectDialog title="{JM_SearchHelp>/Label1}" class="sapUiPopupWithPadding sapUiSizeCompact cl_MaterialFrom " items="{JM_SearchHelp>/List}"
+		search="fnSearchHelpSearch" liveChange="fnSearchHelpSearch" cancel="fnSearchHelpConfirm" confirm="fnSearchHelpConfirm">
+		<StandardListItem
+			title="{ parts: [ { path: 'JM_SearchHelp>Ddtext' }, { path: 'JM_SearchHelp>DomvalueL' }, { path: 'JM_SearchHelp>Value1' }, { path: 'JM_SearchHelp>Value2' } ], formatter: 'RulesEngine.Formatter.formatter.formatValueHelpItem' }"/>
+	</SelectDialog>
+</core:FragmentDefinition>

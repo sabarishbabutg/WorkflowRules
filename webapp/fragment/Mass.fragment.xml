@@ -1,0 +1,19 @@
+<core:FragmentDefinition xmlns="sap.m" xmlns:core="sap.ui.core">
+	<Dialog id="idMassCopyDialog" title="{i18n>MC}"  class="sapUiContentPadding cl_f4screen cl_CreatevarViewDialog sapUiSizeCompact cl_massCopy cl_mc" draggable="true"
+		resizable="true" contentWidth="400px">
+		<VBox>
+			<!-- Existing Material Type -->
+			<RadioButtonGroup id="massgroup" columns="2" select="onRadioSelectMass">
+				<RadioButton text="{i18n>ParameterWise}"/>
+				<RadioButton text="{i18n>ProcessWise}"/>
+			</RadioButtonGroup>
+			<VBox id="dynamicBox" class="sapUiSmallMarginTop"/>
+		</VBox>
+		<beginButton>
+			<Button text="{i18n>Copy}"  press="onConfirmMassCopy" class="cl_YesBtn"/>
+		</beginButton>
+		<endButton>
+			<Button text="{i18n>Cancel}"   press="onCancelCopyDialog" class="cl_NoBtn "/>
+		</endButton>
+	</Dialog>
+</core:FragmentDefinition>

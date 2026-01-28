@@ -1,0 +1,150 @@
+<core:FragmentDefinition xmlns="sap.m" xmlns:core="sap.ui.core" xmlns:layout="sap.ui.layout" xmlns:uitable="sap.ui.table">
+	<Dialog id="idemailDialog" class="cl_CreatevarViewDialog sapUiSizeCompact " stretch="false" horizontalScrolling="false"
+		verticalScrolling="false" contentWidth="500px" contentHeight="auto" draggable="true" resizable="false">
+		<customHeader>
+			<Bar>
+				<contentMiddle>
+					<Text text="{i18n>EmailSLA}" class="cl_hdr"/>
+				</contentMiddle>
+			</Bar>
+		</customHeader>
+		<layout:Grid defaultSpan="L6 M6 S12" class="sapUiSmallMargin " xmlns:layout="sap.ui.layout">
+			<layout:content class="cl_emailtext">
+				<HBox>
+					<Text text="{i18n>AppIDMail}" class="cl_label"/>
+					<Text text="{InputModel>/AppId}" class="cl_label_blue"/>
+				</HBox>
+				<HBox>
+					<Text text="{i18n>LevelMail}" class="cl_label"/>
+					<Text text="{InputModel>/Lvl}" class="cl_label_blue"/>
+				</HBox>
+				<HBox>
+					<Text text="{i18n>MatTyp}" class="cl_label"/>
+					<Text text="{InputModel>/WfParm1}" class="cl_label_blue"/>
+				</HBox>
+				<HBox>
+					<Text text="{i18n>PlantMail}" class="cl_label"/>
+					<Text text="{InputModel>/WfParm2}" class="cl_label_blue"/>
+				</HBox>
+			</layout:content>
+		</layout:Grid>
+		<VBox class="cl_wf_icontabbox sapUiSmallMargin">
+			<IconTabBar id="idIconTabBarEmailSLA" expanded="true" class="cl_wf_icontabbar cl_wf_icontabFontStyle" select="onIconTabSelect">
+				<items>
+					<!--Email Tab -->
+					<IconTabFilter text="{i18n>Email}" key="Email" id="idEmailTab">
+						<VBox id="idEmailLayout">
+							<HBox class="sapUiSmallMargin" width="100%" alignItems="Center" alignContent="Center">
+								<VBox width="50%" class="sapUiSmallMarginEnd">
+									<Text text="{i18n>Email}" class="cl_label cl_emailtext"/>
+									<Input id="id_mail" placeholder="" maxLength="120" liveChange="onEmailLiveChange" width="140%" change="onEmailChange"
+										class="cl_inputBorder sapUiTinyMarginEnd cl_emailinput "/>
+								</VBox>
+								<HBox>
+									<Button  icon="{= ${JM_ImageModel>/path} + 'Save.svg'}"  id="id_Savemail" class=" sapUiTinyMarginEnd cl_CVDeleteBtn sapUiSizeCompact cl_emailsavebtn"
+										press="fnaddEmail" tooltip="Add Email"/>
+									<Button icon="{= ${JM_ImageModel>/path} + 'del.svg'}"  id="id_delemail"
+										class="sapUiTinyMarginBegin cl_CVDeleteBtn cl_emaildeletebtn sapUiTinyMarginEnd sapUiSizeCompact" press="fnRemoveEmail"
+										tooltip="Remove Email"/>
+								</HBox>
+							</HBox>
+							<!--Email Table -->
+							<HBox width="100%" justifyContent="Center" alignItems="Center">
+								<uitable:Table id="id_emailtable" selectionMode="MultiToggle" visibleRowCount="4" rows="{EmailList>/EmailList}" width="430px"
+									class="sapUiSmallMarginBottom cl_tt_table cl_ui_tableWf">
+									<uitable:columns>
+										<uitable:Column>
+											<uitable:label><Label text="{i18n>Email}"/></uitable:label>
+											<uitable:template>
+												<Text text="{EmailList>MailId}" class="cl_emailText"/>
+											</uitable:template>
+										</uitable:Column>
+										<uitable:Column width="95px">
+											<uitable:label><Label text="{i18n>Action}"/></uitable:label>
+											<uitable:template>
+												<Button id="id_delemulmail" enabled="{InputModel>/isEnabled}" type="Transparent"  icon="{= ${JM_ImageModel>/path} + 'DeleteEmail.svg'}"  width="0.8rem"
+													press="fnsingleRemoveEmail" tooltip="Remove Email"/>
+											</uitable:template>
+										</uitable:Column>
+									</uitable:columns>
+								</uitable:Table>
+							</HBox>
+						</VBox>
+					</IconTabFilter>
+					<!--SLA Tab -->
+					<IconTabFilter text="{i18n>SLA}" key="SLA" id="idSlaTab">
+						<VBox id="idSlaLayout" class="sapUiSmallMargin" width="100%">
+							<HBox width="100%" alignItems="Center" class="sapUiSmallMarginBottom">
+								<Text text="{i18n>SLARemiander}" width="180px" class="cl_emailtext cl_label sapUiSmallMarginEnd"/>
+								<Input id="ID_SLAREMDATE"  valueLiveUpdate="true" type="Number" showValueHelp="true" liveChange="fn_slavalidation" change="onSlaFieldChange" width="100px"
+									class="cl_customValueHelpIcon sapUiSmallMarginEnd sapUiSizeCompact cl_inputfiled1"/>
+								<TimePicker id="ID_SLAREMTIME" width="100px" change="onSlaFieldChange" displayFormat="HH:mm" valueFormat="HH:mm" placeholder=" "
+									class="sapUiSizeCompact cl_inputfiled1"/>
+							</HBox>
+							<HBox width="100%" alignItems="Center">
+								<Text text="{i18n>SLAEscalation}" width="180px" class="cl_label cl_emailtext sapUiSmallMarginEnd"/>
+								<Input id="ID_SLAESCDATE"  valueLiveUpdate="true" type="Number" change="onSlaFieldChange" showValueHelp="true" liveChange="fn_slavalidation" width="100px"
+									class="cl_customValueHelpIcon sapUiSmallMarginEnd sapUiSizeCompact cl_inputfiled1"/>
+								<TimePicker id="ID_SLAESCTIME" width="100px" change="onSlaFieldChange" displayFormat="HH:mm" valueFormat="HH:mm" placeholder=" "
+									class="sapUiSizeCompact cl_inputfiled1"/>
+							</HBox>
+							<CheckBox id="ID_EXTAPR" text="{i18n>ExistingApprover}" select="onSlaFieldChange"
+								class="cl_wf_extapr cl_checkboxstyle cl_wf_cmbbox sapUiSizeCompact"/>
+						</VBox>
+						<HBox class="sapUiSmallMargin" width="100%" alignItems="Center" alignContent="Center">
+							<VBox width="50%" class="sapUiSmallMarginEnd">
+								<Text text="{i18n>Email}" class="cl_label cl_emailtext"/>
+								<Input id="id_slamail" placeholder="" maxLength="120" liveChange="onEmailLiveChange" width="100%" change="onEmailChange"
+									class="cl_inputBorder sapUiTinyMarginEnd cl_emailinput "/>
+							</VBox>
+							<HBox>
+								<ComboBox id="ID_EMAILCOMBOBOX" width="100px" items="{JM_SLASELMODEL>/List}" change="onSlaMailTypeChange"
+									class="sapUiSizeCompact cl_wf_comboboxSLA">
+									<core:Item key="{JM_SLASELMODEL>key}" text="{JM_SLASELMODEL>text}"/>
+								</ComboBox>
+								<Button  icon="{= ${JM_ImageModel>/path} + 'Save.svg'}"  id="id_slaSavemail" class="sapUiTinyMarginBegin cl_CVDeleteBtn sapUiSizeCompact "
+									press="fnaddSlaEmail" tooltip="Add Email"/>
+								<Button  icon="{= ${JM_ImageModel>/path} + 'del.svg'}"  id="id_sladelemail"
+									class="sapUiTinyMarginBegin cl_CVDeleteBtn  sapUiTinyMarginEnd sapUiSizeCompact" press="fnRemoveSlaEmail"
+									tooltip="Remove Email"/>
+							</HBox>
+						</HBox>
+						<!--SLA Email Table -->
+						<HBox width="100%" justifyContent="Center" alignItems="Center">
+							<uitable:Table id="id_slaemailtable" selectionMode="MultiToggle" visibleRowCount="4" rows="{SlaList>/SlaList}" width="430px"
+								class="sapUiSmallMarginBottom cl_tt_table cl_ui_tableWf">
+								<uitable:columns>
+									<uitable:Column>
+										<uitable:label><Label text="{i18n>Email}"/></uitable:label>
+										<uitable:template>
+											<Text text="{SlaList>MailId}" class="cl_emailText"/>
+										</uitable:template>
+									</uitable:Column>
+									<uitable:Column>
+										<uitable:label><Label text="{i18n>SLAType}"/></uitable:label>
+										<uitable:template>
+											<Text text="{SlaList>MailType}" class="cl_emailText"/>
+										</uitable:template>
+									</uitable:Column>
+									<uitable:Column width="95px">
+										<uitable:label><Label text="{i18n>Action}"/></uitable:label>
+										<uitable:template>
+											<Button id="id_sladelemulmail" enabled="{InputModel>/isEnabled}" type="Transparent"  icon="{= ${JM_ImageModel>/path} + 'DeleteEmail.svg'}"  width="0.8rem"
+												press="fnsingleRemoveSlaEmail" tooltip="Remove Email"/>
+										</uitable:template>
+									</uitable:Column>
+								</uitable:columns>
+							</uitable:Table>
+						</HBox>
+						<!--</VBox>-->
+					</IconTabFilter>
+				</items>
+			</IconTabBar>
+		</VBox>
+		<Bar class="cl_mvFooter">
+			<contentMiddle>
+				<Button text="{i18n>Close}" icon="{= ${JM_ImageModel>/path} + 'cancel.svg'}"  class="cl_CVCancelBtn " press="onEmailDialogClose"/>
+			</contentMiddle>
+		</Bar>
+	</Dialog>
+</core:FragmentDefinition>

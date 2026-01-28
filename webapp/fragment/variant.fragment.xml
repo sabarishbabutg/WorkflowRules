@@ -1,0 +1,81 @@
+<!--<?xml version="1.0" encoding="UTF-8"?>-->
+<core:FragmentDefinition xmlns="sap.m" xmlns:core="sap.ui.core" xmlns:t="sap.ui.table" xmlns:grid="sap.ui.layout">
+	<Dialog id="idvariantOpen" class="cl_CreatevarViewDialog sapUiSizeCompact " stretch="false" horizontalScrolling="false"
+		verticalScrolling="true" contentWidth="50rem" contentHeight="auto" draggable="true" resizable="false">
+		<customHeader>
+			<Bar>
+				<contentMiddle>
+					<Text text="{i18n>Variant}" class="cl_hdr"/>
+				</contentMiddle>
+			</Bar>
+		</customHeader>
+		<VBox id="ID_CREATE_VAR" class=" sapUiSmallMarginBeginEnd" height="100%">
+			<HBox id="ID_CREATE_VAR_HBOX" visible="false" class="sapUiSmallMarginBeginEnd sapUiSmallMarginTopBottom">
+				<Text id="ID_VAR_TEXT" class="cl_varText"/>
+			</HBox>
+			<HBox>
+				<grid:Grid hSpacing="1" defaultSpan="L12 M12 S12">
+					<VBox class="sapUiSmallMarginTop">
+						<t:Table id="idVariantTable" rows="{WFViewModel>/variants}" selectionMode="Single" selectionBehavior="Row" visibleRowCount="9"
+							enableSelectAll="false" class=" sapUiSmallMarginBottom cl_uiTable" columnHeaderHeight="25" rowHeight="32"
+							rowSelectionChange=".onVariantRowSelection1">
+							<t:columns>
+								<t:Column>
+									<t:label>
+										<Label text="{i18n>Variants}"/>
+									</t:label>
+									<t:template>
+										<Text text="{WFViewModel>Variant}" class="cl_tablecolTxt"/>
+									</t:template>
+								</t:Column>
+							</t:columns>
+						</t:Table>
+						<layoutData>
+							<grid:GridData span="L4 M12 S12"/>
+						</layoutData>
+					</VBox>
+					<VBox class="sapUiSmallMarginTop">
+						<t:Table id="idVariantsTable" rows="{WFViewModel>/views}" selectionMode="None" selectionBehavior="RowSelector" visibleRowCount="9"
+							enableSelectAll="true" class="sapUiSmallMarginBottom cl_uiTable cl_VarTabVSB" columnHeaderHeight="25" rowHeight="31">
+							<t:columns>
+								<t:Column width="22%">
+									<t:label>
+										<Label text="{i18n>SelectView}" tooltip="{i18n>SelectView}"/>
+									</t:label>
+									<t:template>
+										<CheckBox selected="{WFViewModel>Active}" select=".onSelectCheckbox" enabled="false" class=" cl_checkbox"/>
+									</t:template>
+								</t:Column>
+								<t:Column width="20%">
+									<t:label>
+										<Label text="{i18n>ReadOnly}"/>
+									</t:label>
+									<t:template>
+										<CheckBox selected="{WFViewModel>ReadOnly}" enabled="false" class=" cl_checkbox"/>
+									</t:template>
+								</t:Column>
+								<t:Column>
+									<t:label>
+										<Label text="{i18n>ViewName}"/>
+									</t:label>
+									<t:template>
+										<Text text="{WFViewModel>ViewName}" class="cl_tablecolTxt"/>
+									</t:template>
+								</t:Column>
+							</t:columns>
+						</t:Table>
+						<layoutData>
+							<grid:GridData span="L8 M12 S12"/>
+						</layoutData>
+					</VBox>
+				</grid:Grid>
+			</HBox>
+		</VBox>
+		<Bar class="cl_mvFooter">
+			<contentMiddle>
+				<Button text="{i18n>Ok}" class="cl_PrimaryBtn sapUiSizeCompact" press="onokselect"/>
+				<Button text="{i18n>Close}" class="cl_SecondaryBtn sapUiSizeCompact " press="onCancelSelectVar"/>
+			</contentMiddle>
+		</Bar>
+	</Dialog>
+</core:FragmentDefinition>

@@ -1,0 +1,11 @@
+<core:FragmentDefinition xmlns="sap.m" xmlns:core="sap.ui.core">
+	<SelectDialog title = "{i18n>Masters}" 
+		class="sapUiPopupWithPadding sapUiSizeCompact cl_MaterialFrom "
+		items="{JM_MASTERS>/List}" 
+		search="fn_masterSearch"
+		liveChange="fn_masterSearch"
+		cancel="fn_masterConfirm"
+		confirm="fn_masterConfirm">
+			<StandardListItem title="{JM_MASTERS>DomvalueL} - {JM_MASTERS>Ddtext}"/>
+	</SelectDialog>
+</core:FragmentDefinition>

@@ -1,0 +1,6 @@
+<core:FragmentDefinition xmlns="sap.m" xmlns:core="sap.ui.core">
+	<SelectDialog title="Application Id" class="sapUiPopupWithPadding sapUiSizeCompact cl_MaterialFrom " items="{JM_Appid>/List}"
+		search="fnAppIdSearch" confirm="fnAppIdClose" liveChange="fnAppIdSearch" cancel="fnAppIdClose">
+		<StandardListItem title="{JM_Appid>DomvalueL} - {JM_Appid>Ddtext}"/>
+	</SelectDialog>
+</core:FragmentDefinition>

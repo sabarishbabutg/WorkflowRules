@@ -1,0 +1,73 @@
+<mvc:View xmlns:core="sap.ui.core" xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m" controllerName="WorkflowRules.controller.HomePage"
+	xmlns:html="http://www.w3.org/1999/xhtml" xmlns:grid="sap.ui.layout">
+	<App>
+		<pages>
+			<Page showHeader="true" title="Application" class="cl_pageBg sapUiSizeCompact" enableScrolling="true">
+				<customHeader>
+					<OverflowToolbar class="cl_header_toolbar">
+						<Image src="{= ${JM_ImageModel>/path} + 'MDSexalca.svg'}" tooltip = "{i18n>ExalcaMDS}" width = "2rem"></Image>
+						<Title text="{i18n>homeTitle}" class="sapUiSmallMarginBegin cl_header_title"/>
+						<ToolbarSpacer/>
+						<Label text="{JM_UserModel>/Sysid} - {JM_UserModel>/Uname}" class="cl_userid_font sapUiTinyMarginEnd"/>
+						<Image src="{= ${JM_ImageModel>/path} + 'ExalcaLogotiny.svg'}" tooltip = "{i18n>ExalcaMDS}" class="sapUiSmallMarginEnd" width = "1rem"></Image>
+					</OverflowToolbar>
+				</customHeader>
+				<content class="cl_content">
+					<VBox class="cl_backgroundImage">
+						<VBox alignItems = "Center" justifyContent = "Center" class="sapUiSmallMarginBeginEnd sapUiSmallMarginTopBottom" height= "6rem">
+							<FormattedText class="Cl_welcomeText" htmlText="{i18n>welcomeLine1}"/>
+							<FormattedText class="Cl_welcomeText" htmlText="{i18n>welcomeLine2}"/>
+						</VBox>
+						<grid:Grid>
+							<HBox>
+								<layoutData>
+									<grid:GridData span="L2 M12 S12"/>
+								</layoutData>
+							</HBox>
+							<HBox id="id_uwlPress" class="cl_TileBg sapUiSmallMarginEnd" justifyContent="Center" height="10rem">
+								<VBox class="sapUiMediumMarginTopBottom">
+									<Image src="{= ${JM_ImageModel>/path} + 'WorFlowTile.svg'}" class="cl_alignCewnter sapUiTinyMarginBegin" width="4rem"></Image>
+									<Label text="Workflow" class="cl_homeNavtext"></Label>
+								</VBox>
+								<layoutData>
+									<grid:GridData span="L4 M12 S12"/>
+								</layoutData>
+							</HBox>
+							<HBox id="id_dashboard" class="cl_TileBg" justifyContent="Center" height="10rem">
+								<VBox class="sapUiSmallMarginTopBottom" alignContent="Center" justifyContent="Center">
+									<Image src="{= ${JM_ImageModel>/path} + 'RulesEngine.svg'}" class="cl_alignCewnter sapUiTinyMarginBegin" width="4rem"></Image>
+									<Label text="Rules Engine" class="cl_homeNavtext"></Label>
+								</VBox>
+								<layoutData>
+									<grid:GridData span="L4 M12 S12"/>
+								</layoutData>
+							</HBox>
+							<HBox>
+								<layoutData>
+									<grid:GridData span="L2 M12 S12"/>
+								</layoutData>
+							</HBox>
+						</grid:Grid>
+						<grid:Grid>
+							<HBox>
+								<layoutData>
+									<grid:GridData span="L3 M12 S12"/>
+								</layoutData>
+							</HBox>
+							<HBox class="cl_downbgImage sapUiSmallMarginEnd" justifyContent="Center">
+								<layoutData>
+									<grid:GridData span="L5 M12 S12"/>
+								</layoutData>
+							</HBox>
+							<HBox>
+								<layoutData>
+									<grid:GridData span="L3 M12 S12"/>
+								</layoutData>
+							</HBox>
+						</grid:Grid>
+					</VBox>
+				</content>
+			</Page>
+		</pages>
+	</App>
+</mvc:View>

@@ -1,0 +1,170 @@
+<mvc:View xmlns:core="sap.ui.core" xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m" controllerName="WorkflowRules.controller.RulesEngine"
+	xmlns:uitable="sap.ui.table" xmlns:html="http://www.w3.org/1999/xhtml" xmlns:grid="sap.ui.layout">
+	<App>
+		<pages>
+			<Page class="sapUiSizeCompact cl_mdbg" enableScrolling="true">
+				<customHeader>
+					<OverflowToolbar class=" cl_header_toolbar">
+						<Image src="{= ${JM_ImageModel>/path} + 'NavBack.svg'}" tooltip="{i18n>navBack}" width="1.5rem" press="fnNavBack"
+							class="cl_pv_removeImgFocus sapUiSmallMarginBegin"/>
+						<Title text="MDM - Rules Engine" class="sapUiTinyMarginBegin cl_header_title"/>
+						<ToolbarSpacer/>
+						<Label text="{JM_User>/Sysid} - {JM_User>/Uname}" class="cl_userid_font sapUiTinyMarginEnd"/>
+						<Image src="{= ${JM_ImageModel>/path} + 'ExalcaLogotiny.svg'}" tooltip = "{i18n>ExalcaMDS}" class="sapUiSmallMarginEnd" width = "1rem"></Image>
+					</OverflowToolbar>
+				</customHeader>
+				<content>
+					<grid:Grid class="sapUiSmallMarginTop">
+						<VBox>
+							<Label text="{i18n>ApplicationID}" class="cl_inputLabel" labelFor="RID_MASTER"/>
+							<VBox width="100%">
+								<Input id="RID_MASTER" required="true" showValueHelp="true" valueHelpOnly="true" valueHelpRequest="fnAppId" class="cl_inputField"/>
+							</VBox>
+							<layoutData>
+								<grid:GridData span="L2 M12 S12"/>
+							</layoutData>
+						</VBox>
+						<VBox>
+							<Label text="{i18n>Screen}" class="cl_inputLabel" labelFor="id_Screen"/>
+							<VBox width="100%">
+								<Input id="id_Screen" class="cl_inputField " required="true" valueHelpRequest="fnGetScreens" showValueHelp="true" valueHelpOnly="true"/>
+							</VBox>
+							<layoutData>
+								<grid:GridData span="L2 M12 S12"/>
+							</layoutData>
+						</VBox>
+						<VBox>
+							<Label/>
+							<HBox width="100%">
+								<Button text="{i18n>Screen}" icon="{= ${JM_ImageModel>/path} + 'Search.svg'}" press="fnGetRules" class="cl_PrimaryBtn sapUiSmallMarginEnd"/>
+								<Button text="{i18n>SpecificRule}" icon="{= ${JM_ImageModel>/path} + 'Specific.svg'}" press="fnSpecificRule" class="cl_SecondaryBtn "/>
+							</HBox>
+							<layoutData>
+								<grid:GridData span="L3 M12 S12"/>
+							</layoutData>
+						</VBox>
+					</grid:Grid>
+					<grid:Grid hSpacing="1" defaultSpan="L12 M12 S12">
+						<VBox class="sapUiTinyMarginTop cl_retablebox">
+							<OverflowToolbar class="cl_toolbarBorderBottomRemove sapUiTinyMarginTopBottom sapUiSmallMarginBegin ">
+								<Label text="{i18n>RuleSet}" class="cl_headerlabel"/>
+								<ToolbarSpacer/>
+								<Button text="{i18n>CreateRuleSet}" icon="{= ${JM_ImageModel>/path} + 'CreateRule.svg'}" class="cl_reGeneralBtn cl_reiconBtn "
+									press="fnAddRuleSet"/>
+								<Button icon="{= ${JM_ImageModel>/path} + 'SaveRule.svg'}" tooltip = "Save Rule" class=" cl_reGeneralBtn" press="fnSaveRuleSet"/>
+								<Button icon="{= ${JM_ImageModel>/path} + 'DeleteRule.svg'}" tooltip = "Delete Rule" class="sapUiSmallMarginEnd cl_reGeneralBtn" press="fnRemoveRuleSet"/>
+							</OverflowToolbar>
+							<uitable:Table id="id_ruleTable" rows="{JM_Rules>/Rule}" selectionMode="Single" selectionBehavior="Row" visibleRowCount="11"
+								rowSelectionChange="fnRuleSetSelection" class="cl_uiTable sapUiSmallMarginBeginEnd sapUiSmallMarginBottom">
+								<uitable:noData>
+									<VBox alignItems="Center" justifyContent="Center">
+										<Image src="{= ${JM_ImageModel>/path} + 'Nodatafound.gif'}" width="150px" height="150px"/>
+										<Text text="{i18n>NoDataFound}"/>
+									</VBox>
+								</uitable:noData>
+								<uitable:columns>
+									<uitable:Column>
+										<Label text="{i18n>RulesDescription}"/>
+										<uitable:template>
+											<Input value="{JM_Rules>FmmDes}" editable="{= ${JM_Rules>FmmDes} === '' ? true : false}" showValueHelp="true" valueHelpOnly="true"
+												valueHelpRequest="fnGetRuleSet" class="cl_retableinput cl_retabletext"/>
+										</uitable:template>
+									</uitable:Column>
+								</uitable:columns>
+							</uitable:Table>
+							<layoutData>
+								<grid:GridData span="L4 M12 S12"/>
+							</layoutData>
+						</VBox>
+						<VBox class="sapUiTinyMarginTop cl_retablebox">
+							<OverflowToolbar class="cl_toolbarBorderBottomRemove sapUiTinyMarginTopBottom sapUiSmallMarginBegin ">
+								<Label text="{i18n>RuleData}" class="cl_headerlabel"/>
+								<ToolbarSpacer/>
+								<Button text="{i18n>CreateNewRule}" icon="{= ${JM_ImageModel>/path} + 'CreateRule.svg'}" class="cl_reGeneralBtn cl_reiconBtn"
+									press="fnCreateNewRuleData" enabled="{JM_Enabled>/Create}"/>
+								<Button text="{i18n>AddRow}" icon="{= ${JM_ImageModel>/path} + 'CreateRule.svg'}" class="cl_reGeneralBtn cl_reiconBtn" press="fnAddRow"
+									enabled="{JM_Enabled>/Add}"/>
+								<Button text="{i18n>RemoveRow}" icon="{= ${JM_ImageModel>/path} + 'DeleteRule.svg'}" class="cl_reGeneralBtn cl_reiconBtn"
+									press="fnRemoveRow" enabled="{JM_Enabled>/Remove}"/>
+								<Button icon="{= ${JM_ImageModel>/path} + 'CopyRule.svg'}" tooltip = "Copy Rule Data" class=" cl_reGeneralBtn" press="fnCopyRuleData" enabled="{JM_Enabled>/Copy}"/>
+								<Button icon="{= ${JM_ImageModel>/path} + 'SaveRule.svg'}" tooltip = "Save Rule Data" class=" cl_reGeneralBtn" press="fnSaveRuleData" enabled="{JM_Enabled>/Save}"/>
+								<Button icon="{= ${JM_ImageModel>/path} + 'DeleteRule.svg'}" tooltip = "Delete Rule Data" class=" cl_reGeneralBtn" press="fnRemoveRuleData"
+									enabled="{JM_Enabled>/Delete}"/>
+								<Button icon="{= ${JM_ImageModel>/path} + 'RefreshRule.svg'}" tooltip = "Refresh Rule Data" class=" sapUiSmallMarginEnd cl_reGeneralBtn" press="fnRefresh"
+									enabled="{JM_Enabled>/Refresh}"/>
+							</OverflowToolbar>
+							<uitable:TreeTable id="id_datatable" rows="{path:'JM_RuleData>/', parameters: {arrayNames:['Input']}}" selectionMode="Single"
+								SelectionBehavior="Row" visibleRowCount="11" rowSelectionChange="fnRuleDataSelection"
+								class="cl_ruledatatable sapUiSmallMarginBeginEnd sapUiSmallMarginBottom" toggleOpenState="fnExpandNode">
+								<uitable:noData>
+									<VBox alignItems="Center" justifyContent="Center">
+										<Image src="{= ${JM_ImageModel>/path} + 'Nodatafound.gif'}" width="150px" height="150px"/>
+										<Text text="{i18n>NoDataFound}"/>
+									</VBox>
+								</uitable:noData>
+								<uitable:columns>
+									<uitable:Column>
+										<Label text="{i18n>RuleId}"/>
+										<uitable:template>
+											<Text text="{JM_RuleData>RuleId}" visible="{= ${JM_RuleData>Ftype} === 'I' ? false : true}" class="cl_retabletext"/>
+										</uitable:template>
+									</uitable:Column>
+									<uitable:Column>
+										<Label text="{i18n>FieldName}"/>
+										<uitable:template>
+											<Input value="{JM_RuleData>Fnm}" tooltip="{JM_RuleData>Fnm}" valueHelpRequest="fnfieldname" showValueHelp="true" valueHelpOnly="true"
+												editable="{= ${JM_RuleData>Ftype} === 'I' ? true : false}" class="cl_retableinput"/>
+										</uitable:template>
+									</uitable:Column>
+									<uitable:Column>
+										<Label text="{i18n>FieldDescription}"/>
+										<uitable:template>
+											<Text text="{JM_RuleData>FmmDes}" tooltip="{JM_RuleData>FmmDes}" wrapping="false" class="cl_retabletext"/>
+										</uitable:template>
+									</uitable:Column>
+									<uitable:Column>
+										<Label text="{i18n>Value}"/>
+										<uitable:template>
+											<Input value="{JM_RuleData>Value}" tooltip="{JM_RuleData>Value}" id="id_value" valueHelpRequest="fnvalue" liveChange="fnUpperCase"
+												showValueHelp="{parts: [{path: 'JM_RuleData>FnmId'}], formatter: 'RulesEngine.Formatter.formatter.fnShowValueHelp'}" valueHelpOnly="true"
+												class="cl_retableinput"/>
+										</uitable:template>
+									</uitable:Column>
+									<uitable:Column>
+										<Label text="{i18n>Text}"/>
+										<uitable:template>
+											<Text text="{JM_RuleData>RuleText}" wrapping="false" class="cl_retabletext"/>
+										</uitable:template>
+									</uitable:Column>
+									<uitable:Column id="id_tableui" visible="true">
+										<Label text="{i18n>TableRow}"/>
+										<uitable:template>
+											<Input value="{JM_RuleData>TableRow}" tooltip="{JM_RuleData>TableRow}" editable="false" class="cl_retableinput"/>
+										</uitable:template>
+									</uitable:Column>
+									<uitable:Column>
+										<Label text="{i18n>FunctionType}"/>
+										<uitable:template>
+											<Text text="{path: 'JM_RuleData>Ftype', formatter: 'RulesEngine.Formatter.formatter.formatFtype'}" class="cl_retabletext"/>
+										</uitable:template>
+									</uitable:Column>
+									<uitable:Column>
+										<Label text="{i18n>ReadOnly}"/>
+										<uitable:template>
+											<CheckBox class="cl_opr_checkbx" select="fnReadOnlySelect"
+												selected="{ path: 'JM_RuleData>ChangeInd', formatter: 'RulesEngine.Formatter.formatter.chamgeIndToBoolean' }"
+												enabled="{= ${JM_RuleData>Ftype} === 'R' ? true : false}" visible="{= ${JM_RuleData>Ftype} === 'R' ? true : false}"/>
+										</uitable:template>
+									</uitable:Column>
+								</uitable:columns>
+							</uitable:TreeTable>
+							<layoutData>
+								<grid:GridData span="L8 M12 S12"/>
+							</layoutData>
+						</VBox>
+					</grid:Grid>
+				</content>
+			</Page>
+		</pages>
+	</App>
+</mvc:View>

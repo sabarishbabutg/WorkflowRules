@@ -1,0 +1,575 @@
+/*********************************Fragment Styles*************************************************************/
+
+.cl_refragment.sapMPopup-CTX .sapMIBar.sapMHeader-CTX {
+    background-image: linear-gradient(45deg, #9DFAF6, #56C4CD);
+}
+
+.cl_refragment .sapMBarTitleAlignAuto .sapMBarPH {
+    justify-content: center;
+}
+
+.cl_refragment .sapMTitleStyleAuto {
+    font-size: 16px;
+}
+
+.cl_refragment .sapMIBar-CTX.sapMTitle {
+    color: #141414;
+    text-shadow: none;
+}
+
+.cl_refragment.sapMDialog {
+    max-height: 60vh !important;
+}
+
+.cl_refragment .sapMSFI {
+    font-family: Segoe UI !important;
+    font-weight: 600;
+    color: #4E4B66;
+}
+
+.cl_refragment .sapMSFB::after {
+    line-height: 1.8rem;
+}
+
+.cl_refragment .sapMSFI::placeholder {
+    font-family: "Segoe UI" !important;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 12px;
+    letter-spacing: 0.15px;
+    text-transform: capitalize;
+    color: #9AA0A7;
+    opacity: 1;
+}
+
+.cl_refragment .sapMSFF {
+    background: rgba(53, 53, 65, 0.04) !important;
+    border-radius: 3px;
+}
+
+.cl_refragment .sapUiSizeCompact .sapMSLITitle,
+.cl_refragment.sapUiSizeCompact .sapMSLITitleOnly {
+    Font-size: 12px;
+    font-family: Segoe UI;
+    font-weight: 400;
+    line-height: 24px;
+    letter-spacing: 0.4px;
+    text-transform: capitalize;
+    color: #4E4B66;
+}
+
+.cl_refragment .sapMIBar.sapMFooter-CTX {
+    background-color: #E8E8E8 !important;
+}
+
+.cl_refragment .sapMBtnInner {
+    border-radius: 0;
+}
+
+.cl_refragment .sapMBtnInner {
+    background: linear-gradient(to right, #BBBBC5, #6D6D74);
+    font-family: Segoe UI;
+    font-size: 13px;
+    color: #FFFFFF !important;
+    align-items: center;
+    align-content: center;
+    justify-content: center;
+    border-radius: 4px;
+    border: none !important;
+}
+
+.cl_refragment .sapMBtnInner::before {
+    content: "";
+    display: inline-block;
+    background-image: url("../Image/CancelIcon.svg");
+    background-repeat: no-repeat;
+    background-size: 16px 16px;
+    width: 16px;
+    height: 16px;
+    margin-right: 6px;
+    vertical-align: middle;
+}
+
+.cl_refragment .sapMBtn:focus-visible>.sapMFocusable:not(.sapMBadgeIndicator)::before,
+html.sap-desktop .sapMBtn:focus>.sapMFocusable:not(.sapMBadgeIndicator)::before {
+    position: relative;
+    border: none;
+}
+
+.cl_refragment .sapMBtn:hover>.sapMBtnHoverable {
+    background: linear-gradient(to right, #BBBBC5, #6D6D74);
+}
+
+.cl_refragment.sapMBtnDefault::before {
+    border: none !important;
+}
+
+.cl_refragment.sapMBtnInner .sapMBtnIcon.sapMImg {
+    width: 1.2rem !important;
+}
+
+
+/*Removes the right Alignment of Select Dialog close*/
+
+.cl_refragment .sapMTBSpacer {
+    display: none;
+}
+
+.cl_refragment .sapMTB.sapMFooter-CTX {
+    background: #E8E8E8 !important;
+    align-content: center;
+    align-items: center;
+    justify-content: center;
+}
+
+.cl_refragment .sapMLIB.sapMLIBSelected {
+    border-bottom: .0625rem solid #e5e5e5;
+    border-bottom-width: 0.0625rem;
+    border-bottom-style: solid;
+    border-bottom-color: #e5e5e5;
+}
+
+.cl_refragment .sapMLIB.sapMLIBSelected {
+    background: none;
+}
+
+
+/*********************************Fragment Styles*************************************************************/
+
+
+/*************************Custom Snackbar Styles*************************************************************/
+
+.cl_recustomSnackbar {
+    position: fixed;
+    bottom: 30px;
+    left: 50%;
+    transform: translateX(-50%);
+    min-width: 200px;
+    max-width: 80%;
+    padding: 10px;
+    background-color: #ffffff;
+    color: white;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+    text-align: center;
+    z-index: 1000000;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.4s ease-in-out;
+}
+
+.cl_reshowMessage {
+    opacity: 1 !important;
+    visibility: visible !important;
+}
+
+.cl_rehideMessage {
+    opacity: 0 !important;
+    visibility: hidden !important;
+}
+
+.cl_resnackbarIcon {
+    padding-top: 4px !important;
+}
+
+.cl_remsgBoxMessage {
+    text-align: left;
+    font-family: 'Segoe UI' !important;
+    font-size: 12px;
+    font-weight: 450;
+    color: #4E4B66;
+}
+
+.cl_snackbar_subhedding_s {
+    background-image: linear-gradient(to right, #00BA00 4px, #ffffff 1px);
+    align-items: center;
+}
+
+.cl_msgBoxTitle_s {
+    text-align: left;
+    font-family: 'Segoe UI' !important;
+    font-size: 17px !important;
+    font-weight: 500;
+    color: #00CCFF;
+}
+
+.cl_snackbar_subhedding_e {
+    background-image: linear-gradient(to right, #F44336 4px, #ffffff 1px);
+    align-items: center;
+}
+
+.cl_msgBoxTitle_e {
+    text-align: left;
+    font-family: 'Segoe UI' !important;
+    font-size: 17px !important;
+    color: #F44336;
+    font-weight: 500;
+}
+
+.cl_snackbar_subhedding_w {
+    background-image: linear-gradient(to right, #F4C300 4px, #ffffff 1px);
+    align-items: center;
+}
+
+.cl_msgBoxTitle_w {
+    text-align: left;
+    font-family: 'Segoe UI' !important;
+    font-size: 17px !important;
+    font-weight: 500;
+    color: #F4C300;
+}
+
+.cl_snackbar_subhedding_i {
+    background-image: linear-gradient(to right, #00CCFF 4px, #ffffff 1px);
+    align-items: center;
+}
+
+.cl_msgBoxTitle_i {
+    text-align: left;
+    font-family: 'Segoe UI' !important;
+    font-size: 17px !important;
+    font-weight: 500;
+    color: #00CCFF;
+}
+
+
+/*************************Custom Snackbar Styles*************************************************************/
+
+
+/*************************Confirmation popup styles*************************************************************/
+
+.cl_ConfirmationToolbar {
+    background: linear-gradient(to left, #56C4CD, #9DFAF6) !important;
+    justify-content: Center !important;
+}
+
+.cl_ConfirmationTitle {
+    font-family: 'Segoe UI' !important;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 24px;
+    display: flex;
+    align-items: center;
+    letter-spacing: 0.15px;
+    text-transform: capitalize;
+    color: #23283B;
+}
+
+.cl_confirmationTxt.sapMText {
+    font-family: 'Segoe UI' !important;
+    font-weight: 400;
+    font-size: 14px;
+    vertical-align: middle;
+    text-align: center !important;
+}
+
+.cl_confirmationDialog .sapMDialogScroll {
+    display: contents !important;
+}
+
+.cl_confirmationDialog.sapMMessageDialog .sapMDialogScrollCont {
+    padding: 0rem !important;
+}
+
+.cl_confirmationDialog {
+    max-width: 10rem !important;
+}
+
+.cl_confirmationDialog .sapMTBSpacer {
+    display: none;
+}
+
+.cl_confirmationDialog .sapMTB.sapMFooter-CTX {
+    background: #E8E8E8 !important;
+    align-content: center;
+    align-items: center;
+    justify-content: center;
+}
+
+.cl_repage {
+    background-color: #ffffff;
+}
+
+.cl_re_admintxt {
+    font-family: 'Segoe UI' !important;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 12px;
+    letter-spacing: 0.15px;
+    color: #4E4B66;
+}
+
+.cl_retablebox {
+    border: 1px solid #9AA0A7;
+    border-radius: 6px;
+}
+
+.cl_retoolbar {
+    background-image: url(../Image/navbar.svg)!important;
+    opacity: 1;
+    justify-content: end;
+    background-size: cover;
+    border-bottom-color: #ffffff !important;
+}
+
+.cl_retitleFont {
+    font-family: 'Segoe UI' !important;
+    position: relative;
+    left: 4rem;
+    font-weight: 600;
+    font-size: 14px;
+    color: #141414;
+}
+
+
+
+/*************Rules inputfields***************************/
+
+
+/*************Rules labels***************************/
+
+.cl_relabels.sapMLabel {
+    font-family: 'Segoe UI' !important;
+    font-style: normal;
+    font-size: 14px;
+    color: #141414;
+    font-weight: 400;
+}
+
+
+
+
+/*************Rules labels***************************/
+
+
+/****************Rules General buttons****************************************/
+
+.cl_reGeneralBtn .sapMBtnInner {
+    border: 1px solid #3393A1 !important;
+    border-radius: 4px;
+    background: #ebfcff !important;
+    font-family: 'Segoe UI'! important;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 12px;
+    color: #4E4B66 !important;
+}
+
+.cl_reGeneralBtn.sapMBtn:hover>.sapMBtnHoverable {
+    background: #E5FCFF;
+}
+
+.cl_reGeneralBtn .sapMBtnDefault::before {
+    border: none !important;
+}
+
+
+/****************Rules General buttons****************************************/
+
+
+/****************Rules Icon buttons****************************************/
+
+.cl_iconBtn .sapMBtnInner .sapMBtnIcon.sapMImg {
+    width: 1.2rem !important;
+}
+
+
+/****************Rules Icon buttons****************************************/
+
+
+/*************rules tableinputfields***************************/
+
+.cl_retableinput .sapMInputBaseIconContainer .sapUiIcon.sapMInputBaseIcon {
+    line-height: 2rem;
+    color: #3393A1 !important;
+}
+
+.cl_retableinput .sapMInputBaseInner {
+    font-family: 'Segoe UI' !important;
+    font-style: normal;
+    /*font-weight: 600;*/
+    font-size: 12px;
+    color: #141414;
+}
+
+.cl_retableinput .sapMInputBase:not(.sapMInputBaseDisabled).sapMInputBaseIconPressed .sapMInputBaseIcon,
+.sapMInputBase:not(.sapMInputBaseDisabled) .sapMInputBaseIcon:active,
+.sapMInputBase:not(.sapMInputBaseDisabled) .sapMInputBaseIcon:hover {
+    box-shadow: none;
+}
+
+.cl_retableinput .sapMInputBaseContentWrapper::before {
+    border: none !important;
+}
+
+.cl_retableinput .sapMInputBaseInner::placeholder {
+    font-family: 'Segoe UI' !important;
+    font-style: normal;
+    /*font-weight: 600;*/
+    font-size: 13px;
+    color: #A8A7A7;
+}
+
+.cl_retableinput .sapMInputBaseContentWrapper:hover {
+    border: none !important;
+    box-shadow: none !important;
+    background: transparent !important;
+}
+
+.cl_retableinput .sapMInputBaseContentWrapper {
+    border: none !important;
+    box-shadow: none !important;
+    background: transparent !important;
+}
+
+
+/*************rules tableinputfields***************************/
+
+
+
+/****************Table styles (Ruledata)****************************************/
+
+.cl_ruledatatable .sapUiTableCnt {
+    background-color: #ffffff;
+    border-radius: 10px !important;
+    border: 1px solid #A7A5A5;
+}
+
+.cl_ruledatatable .sapUiTableCell.sapUiTableHeaderCell {
+    background-color: #e4fbff !important;
+}
+
+.cl_ruledatatable .sapUiTableCell {
+    border-right: none !important;
+}
+
+.cl_ruledatatable .sapUiTableCell:focus::before {
+    outline: none !important;
+    box-shadow: none !important;
+}
+
+.cl_ruledatatable .sapUiTableColHdrCnt {
+    position: relative !important;
+    z-index: 13;
+    background: #e4fbff !important;
+}
+
+.cl_ruledatatable .sapUiTableVSbHeader {
+    display: none !important;
+}
+
+
+/*To change the color of the treetable icon*/
+
+.cl_ruledatatable .sapUiTableGroupIcon::before,
+.sapUiTableTreeIcon::before {
+    color: #3393A1 !important;
+}
+
+
+/*To remove the border and background of treetableicon*/
+
+.cl_ruledatatable .sapUiTableTreeIcon:hover {
+    border: none !important;
+    background: none !important;
+}
+
+
+/*To remove the focus of the treetableicon*/
+
+.cl_ruledatatable .sapUiTableTreeIcon:focus {
+    outline: none !important;
+}
+
+.cl_ruledatatable .sapUiTableRowSel {
+    background-color: #ebfcff !important;
+    background-image: linear-gradient(to right, #56bdcd 6px, #ebfcff 1px) !important;
+    border-right: none !important;
+    border-bottom-color: none !important;
+}
+
+.cl_ruledatatable .sapUiTableRowSel>.sapUiTableCell {
+    border-bottom: .0625rem solid #e5e5e5;
+    border-bottom-width: 0.0625rem;
+    border-bottom-style: solid;
+    border-bottom-color: #e5e5e5;
+}
+
+.cl_ruledatatable .sapUiTableTr.sapUiTableRowSel:not(.sapUiTableGroupHeader)> td:not(.sapUiTableTDDummy) {
+    background-color: #ebfcff !important;
+}
+
+/*************rules tabletext***************************/
+
+.cl_retabletext {
+    font-family: 'Segoe UI' !important;
+    font-style: normal;
+    font-size: 12px;
+    color: #141414;
+}
+
+
+/*************rules tabletext***************************/
+
+
+/*************rules toolbarstyles***************************/
+
+.cl_rehdrtoolbar.sapMTBStandard {
+    border-bottom: none !important;
+}
+
+
+/*************rules toolbarstyles***************************/
+
+
+/****************Rules checkBox styles*****************************************/
+
+.cl_recheckbox .sapMCbBg {
+    border-radius: 0 !important;
+    border: 1px solid #8289A3;
+    height: 13px !important;
+    width: 13px !important;
+}
+
+.cl_recheckbox .sapMCbBg.sapMCbMarkChecked {
+    background-color: #3393A1 !important;
+}
+
+.cl_recheckbox .sapMCbBg.sapMCbMarkChecked::before {
+    font-size: 10px !important;
+    color: #ffffff !important;
+}
+
+.cl_recheckbox.sapMCb:focus::before {
+    border: none !important;
+}
+
+
+/****************Workflow checkBox styles*****************************************/
+/* ===========================
+   Operation table check box
+   =========================== */
+.cl_opr_checkbx .sapMCbBg.sapMCbMarkChecked {
+    height: 15px;
+    width: 15px;
+    top: 0.5rem;
+    left: 0.5rem;
+    background-color: #3393A1 !important;
+    border: none !important;
+}
+.cl_opr_checkbx {
+    caret-color: transparent !important;
+}
+.cl_opr_checkbx .sapMCbBg:not(.sapMCbMarkChecked) {
+    background-color: transparent !important;
+    border: 1px solid #ccc !important;
+}
+.cl_opr_checkbx .sapMCbBg.sapMCbMarkChecked::before {
+    font-size: 0.75rem !important;
+    color: white !important;
+}
+.cl_opr_checkbx.sapMCb:focus::before {
+    content: '';
+    border: none !important;
+}

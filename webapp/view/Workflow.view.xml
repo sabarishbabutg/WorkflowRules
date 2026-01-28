@@ -1,0 +1,315 @@
+<mvc:View xmlns:core="sap.ui.core" xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m" controllerName="WorkflowRules.controller.Workflow"
+	xmlns:uitable="sap.ui.table" xmlns:html="http://www.w3.org/1999/xhtml" xmlns:grid="sap.ui.layout">
+	<App id="app">
+		<pages>
+			<Page enableScrolling="true" class=" sapUiSizeCompact cl_mdbg ">
+				<customHeader>
+					<OverflowToolbar class=" cl_header_toolbar">
+						<Image src="{= ${JM_ImageModel>/path} + 'NavBack.svg'}" tooltip="{i18n>navBack}" width="1.5rem" press="fnNavBack"
+							class="cl_pv_removeImgFocus sapUiSmallMarginBegin"/>
+						<Title text="MDM - Work Flow" class="sapUiTinyMarginBegin cl_header_title"/>
+						<ToolbarSpacer/>
+						<Label text="{UserModel>/Sysid} - {UserModel>/Uname}" class="cl_userid_font sapUiTinyMarginEnd"/>
+						<Image src="{= ${JM_ImageModel>/path} + 'ExalcaLogotiny.svg'}" tooltip = "{i18n>ExalcaMDS}" class="sapUiSmallMarginEnd" width = "1rem"></Image>
+					</OverflowToolbar>
+				</customHeader>
+				<content>
+					<VBox class="sapUiSmallMarginBeginEnd sapUiTinyMarginTop">
+						<grid:Grid hSpacing="0" defaultSpan="L12 M12 S12">
+							<!--<HBox id="idParmHBox">-->
+							<!--	<VBox width="15%" class="sapUiSmallMarginBeginEnd">-->
+							<!--		<HBox>-->
+							<!--			<Label text="{i18n>AppId}" class="cl_inputLabel" required="true"/>-->
+							<!--		</HBox>-->
+							<!--		<Input id="WID_APPID" class="cl_inputField sapUiTinyMarginEnd sapUiSizeCompact " placeholder="{i18n>ipAppID}" required="true"-->
+							<!--			showValueHelp="true" valueHelpRequest="fnGetinitialAppID" valueHelpOnly="true"/>-->
+							<!--	</VBox>-->
+							<!--</HBox>-->
+							<VBox class="sapUiSmallMarginEnd">
+								<Label text="Application ID" id = "WID_APPID_TXT" required="true" class="cl_inputLabel"></Label>
+								<Input class="cl_inputField" id = "WID_APPID" showValueHelp="true" valueHelpRequest="fnF4press" valueHelpOnly="true"></Input>
+								<layoutData>
+									<grid:GridData span="L2 M12 S12"/>
+								</layoutData>
+							</VBox>
+							<HBox id="id_WfParm" width="100%">
+								<layoutData>
+									<grid:GridData span="L10 M12 S12"/>
+								</layoutData>
+							</HBox>
+							<OverflowToolbar class="cl_toolbarBorderBottomRemove">
+								<ToolbarSpacer/>
+								<Button text="{i18n>Search}" id="id_search" icon="{= ${JM_ImageModel>/path} + 'Search.svg'}"
+									class=" cl_primaryButton sapUiSizeCompact sapUiSmallMarginEnd " press="onFilterTableDataGD" tooltip="{i18n>search1}"/>
+								<Button text="{i18n>Save}" id="id_saveWf" icon="{= ${JM_ImageModel>/path} + 'Save.svg'}" enabled="false"
+									class="cl_primaryButton sapUiSizeCompact sapUiSmallMarginEnd" press="onSaveWorkflow"/>
+								<Button text="{i18n>ChangeSearch}" id="id_ChngeSrch" icon="{= ${JM_ImageModel>/path} + 'Changesearch.svg'}"
+									class=" cl_secondaryButton sapUiSizeCompact sapUiSmallMarginEnd" press="onChangeSearch" tooltip="{i18n>CSC}" enabled="false"/>
+								<Button text="{i18n>ForwardAgent}" visible="false" id="id_forAgent" icon="{= ${JM_ImageModel>/path} + 'forward.svg'}"
+									class=" cl_secondaryButton sapUiSizeCompact sapUiSmallMarginEnd" enabled="false"/>
+								<Button text="{i18n>MassAgentChange}" id="id_Masschange" icon="{= ${JM_ImageModel>/path} + 'agent.svg'}"
+									class=" cl_secondaryButton sapUiSizeCompact sapUiSmallMarginEnd" press="onPressAgentChange" tooltip="{i18n>MAC}" enabled="true"/>
+								<!--<Button text="{i18n>CreateVariant}" icon="{= ${JM_ImageModel>/path} + 'createvar.svg'}" class=" cl_secondaryButton sapUiSizeCompact "-->
+								<!--	press="fnGetCreateVar"/>-->
+							</OverflowToolbar>
+							<grid:Grid hSpacing="0" defaultSpan="L12 M12 S12">
+								<VBox class="cl_GdBox sapUiSmallMarginEnd" >
+									<HBox class="sapUiTinyMarginTop sapUiSmallMarginBeginEnd" justifyContent="SpaceBetween">
+										<Text text="{i18n>GD}" class="cl_headerlabel"/>
+										<HBox>
+											<Image id="AddImage" src="{= ${JM_ImageModel>/path} + 'icon11.svg'}" width="1.1rem" class="cl_AddDelete sapUiTinyMarginEnd"
+												press=".onAddGDRow" tooltip="{i18n>AddGeneralData}"/>
+											<Image id="DelImage" src="{= ${JM_ImageModel>/path} + 'minus1.svg'}" width="1.1rem" class="cl_AddDelete" press=".ondelete"
+												tooltip="{i18n>DeleteGeneralData}"/>
+										</HBox>
+									</HBox>
+									<HBox class="sapUiTinyMarginBottom sapUiSmallMarginBegin ">
+										<!--<Button id="id_Mass" text="{i18n>Mass}" icon="{= ${JM_ImageModel>/path} + 'Mass.svg'}"-->
+										<!--	class="cl_MassBtn sapUiSizeCompact sapUiTinyMarginEnd" enabled="false" press=".onPressMass" tooltip="{i18n>MC}"/>-->
+										<!--<Button id="id_massdel" text="{i18n>MassDelete}" enabled="false" press="fn_MassDelete"-->
+										<!--	class="cl_MassBtn sapUiSizeCompact sapUiTinyMarginEnd"/>-->
+										<Button id="id_Copy" text="{i18n>Copy}" icon="{= ${JM_ImageModel>/path} + 'f4.svg'}" class="cl_MassBtn sapUiSizeCompact sapUiTinyMarginEnd"
+											press=".onOpenCopyDialog" enabled="false" tooltip="{i18n>SC}"/>
+										<Button id="id_change" text="{i18n>Change}" icon="{= ${JM_ImageModel>/path} + 'ref.svg'}"
+											class="cl_MassBtn sapUiSizeCompact sapUiSmallMarginEnd" press=".onEditRow" tooltip="{i18n>Chge}" enabled="false"/>
+									</HBox>
+									<!--<uitable:Table id="id_ResultTable" rows="{GDTableModel>/GDTableData}" noDataText="No data" selectionMode="Single" enableSelectAll="true"-->
+									<!--	selectionBehavior="Row" class="sapUiSmallMarginBeginEnd sapUiSmallMarginBottom cl_uiTable cl_resdscroll"-->
+									<!--	rowSelectionChange=".onRowSelectionChange" visibleRowCountMode="Fixed" visibleRowCount="10">-->
+									<!--	<uitable:noData>-->
+									<!--		<VBox alignItems="Center" justifyContent="Center">-->
+									<!--			<Image src="{= ${JM_ImageModel>/path} + 'Nodatafound.gif'}" width="150px" height="150px"/>-->
+									<!--			<Text text="{i18n>NoDataFound}"/>-->
+									<!--		</VBox>-->
+									<!--	</uitable:noData>-->
+									<!--	<uitable:columns>-->
+									<!--		<uitable:Column >-->
+									<!--			<Label/>-->
+									<!--			<uitable:template>-->
+									<!--				<VBox class="cl_tabInput ">-->
+									<!--					<Text/>-->
+									<!--				</VBox>-->
+									<!--			</uitable:template>-->
+									<!--		</uitable:Column>-->
+									<!--	</uitable:columns>-->
+									<!--</uitable:Table>-->
+									<uitable:Table id="id_ResultTable" rows="{GDTableModel>/GDTableData}" noDataText="No data" selectionMode="Single" enableSelectAll="true"
+										selectionBehavior="Row" class="sapUiSmallMarginBeginEnd  cl_uiTable cl_resdscroll"
+										rowSelectionChange=".onRowSelectionChange" visibleRowCountMode="Fixed"  visibleRowCount="10">
+										<uitable:noData>
+											<VBox alignItems="Center" justifyContent="Center">
+												<Image src="{= ${JM_ImageModel>/path} + 'Nodatafound.gif'}" width="150px" height="150px"/>
+												<Text text="{i18n>NoDataFound}"/>
+											</VBox>
+										</uitable:noData>
+										<uitable:columns>
+											<uitable:Column >
+												<Label/>
+												<uitable:template>
+													<VBox class="cl_tabInput ">
+														<Text />
+													</VBox>
+												</uitable:template>
+											</uitable:Column>
+										</uitable:columns>
+										</uitable:Table>
+									<layoutData>
+										<grid:GridData span="L4 M12 S12"/>
+									</layoutData>
+								</VBox>
+								<VBox height="100%">
+									<VBox class="cl_GdBox">
+										<HBox class=" sapUiTinyMarginTop sapUiSmallMarginBeginEnd" justifyContent="SpaceBetween">
+											<Text text="{i18n>LevelDefinition}" class="cl_headerlabel"/>
+											<HBox>
+												<Image id="AddImage1" src="{= ${JM_ImageModel>/path} + 'icon11.svg'}" width="1.1rem" class="cl_AddDelete sapUiTinyMarginEnd"
+													press=".onAddLDRow" tooltip="{i18n>AddLevelDefinition}"/>
+												<Image id="DelImage1" src="{= ${JM_ImageModel>/path} + 'minus1.svg'}" width="1.1rem" class="cl_AddDelete" press=".ondeleteLD"
+													tooltip="{i18n>RemoveLevelDefinition}"/>
+											</HBox>
+										</HBox>
+										<uitable:Table id="id_LDTable" rows="{ path: 'LDTableModel>/tableDataNew', templateShareable: true }" selectionMode="Single"
+											enableSelectAll="true" ariaLabelledBy="tableTitle" visibleRowCount="4" class="sapUiSmallMarginBeginEnd sapUiSmallMarginBottom sapUiTinyMarginTop cl_uiTable"
+											rowSelectionChange=".onLDRowSelectionChange" rowHeight="32" visibleRowCountMode="Fixed">
+											<uitable:noData>
+												<VBox alignItems="Center" justifyContent="Center">
+													<Image src="{= ${JM_ImageModel>/path} + 'Nodatafound.gif'}" width="100px" height="100px"/>
+													<Text text="{i18n>NoDataFound}"/>
+												</VBox>
+											</uitable:noData>
+											<uitable:columns>
+												<uitable:Column >
+													<Label text="{i18n>Level}"/>
+													<uitable:template>
+														<VBox class="cl_tabInput ">
+															<Text text="{LDTableModel>Lvl}" class="cl_tablecolTxt"/>
+														</VBox>
+													</uitable:template>
+												</uitable:Column>
+												<uitable:Column >
+													<Label text="{i18n>Area}"/>
+													<uitable:template>
+														<VBox class="cl_tabInput ">
+															<Text text="{LDTableModel>TypeLvl}" visible="{= !${isNew} &amp;&amp; !${viewModel>/isEditable} }" class="cl_tablecolTxt"/>
+															<Input value="{LDTableModel>area}" visible="{= ${viewModel>/isEditable} || ${LDTableModel>isNew} }"
+																class=" cl_tabInput cl_tabInputAA cl_box cl_s_customComboBox cl_uwlText cl_datePicker cl_inputNoBorderWf"/>
+															<Input value="{LDTableModel>TypeLvl}" visible="{= ${viewModel>/isEditable} || ${LDTableModel>isNew} }" class=" cl_tt_input"/>
+														</VBox>
+													</uitable:template>
+													<uitable:template>
+														<HBox alignItems="Center" justifyContent="SpaceBetween" class="cl_tabInput">
+															<Label text="{LDTableModel>TypeLvl}" class="cl_tablecolTxt"
+																visible="{= !${viewModel>/isComboEditable} || ${LDTableModel>TypeLvl} === 'Initiator' }"/>
+															<ComboBox items="{JAreaModel>/List}" selectedKey="{LDTableModel>TypeLvl}" change="onTypeLvlComboChange"
+																editable="{LDTableModel>isTypeEditable}" visible="{= ${viewModel>/isComboEditable} &amp;&amp; ${LDTableModel>TypeLvl} !== 'Initiator'}"
+																class="sapUiSizeCompact cl_tt_input2 ">
+																<core:Item key="{JAreaModel>DomvalueL}" text="{JAreaModel>Ddtext}"/>
+															</ComboBox>
+														</HBox>
+													</uitable:template>
+												</uitable:Column>
+												<uitable:Column class="cl_maxField">
+													<Label text="{i18n>MaxNoRole}"/>
+													<uitable:template class="cl_maxField">
+														<Text text="{path: 'LDTableModel>MaxRole', formatter: '.removeLeadingZeros'}" class="cl_tablecolTxt cl_tabInput"/>
+													</uitable:template>
+												</uitable:Column>
+												<uitable:Column >
+													<Label text="{i18n>MinNoRole}"/>
+													<uitable:template>
+														<Input value="{path: 'LDTableModel>MinAppr', formatter: '.removeLeadingZeros'}"
+															editable="{= ${LDTableModel>Type} === 'Sequential' ? false : (${viewModel>/isEditable} &amp;&amp; ${LDTableModel>isRowEditable}) }"
+															liveChange=".onMinApprLiveChange" class="cl_tt_input cl_tabInput"/>
+													</uitable:template>
+												</uitable:Column>
+												<!--<uitable:Column width="12%">-->
+												<!--	<Label text="{i18n>Department}"/>-->
+												<!--	<uitable:template>-->
+												<!--		<HBox alignItems="Center" justifyContent="SpaceBetween" class="cl_tabInput">-->
+												<!--			<ComboBox items="{DeptModel>/Departments}" selectedKey="{LDTableModel>Dept}" change="onDeptChange"-->
+												<!--				editable="{= ${viewModel>/isEditable} &amp;&amp; ${LDTableModel>isTypeEditable} }" class="sapUiSizeCompact cl_tt_input2 ">-->
+												<!--				<core:Item key="{DeptModel>key}" text="{DeptModel>text}"/>-->
+												<!--			</ComboBox>-->
+												<!--		</HBox>-->
+												<!--	</uitable:template>-->
+												<!--</uitable:Column>-->
+												<uitable:Column >
+													<Label text="{i18n>Type}"/>
+													<uitable:template>
+														<HBox alignItems="Center" justifyContent="SpaceBetween" class="cl_tabInput">
+															<ComboBox items="{JAppID>/List}" selectedKey="{LDTableModel>Type}" change="onLDTypeChange"
+																editable="{= ${viewModel>/isEditable} &amp;&amp; ${LDTableModel>isRowEditable} }" class="sapUiSizeCompact cl_tt_input2 ">
+																<core:Item key="{JAppID>DomvalueL}" text="{JAppID>Ddtext}"/>
+															</ComboBox>
+														</HBox>
+													</uitable:template>
+												</uitable:Column>
+												<!--<uitable:Column hAlign="Center">-->
+												<!--	<Label text="{i18n>EmailSLA}"/>-->
+												<!--	<uitable:template>-->
+												<!--		<Image src="{= ${JM_ImageModel>/path} + 'Email.svg'}" width="0.9rem" class=" sapUiTinyMarginEnd" press="onEmailPress"-->
+												<!--			tooltip="Add/Delete Email"/>-->
+												<!--	</uitable:template>-->
+												<!--</uitable:Column>-->
+												<!--<uitable:Column class="cl_maxField">-->
+												<!--	<Label text="{i18n>RemDays}"/>-->
+												<!--	<uitable:template class="cl_maxField">-->
+												<!--		<Label text="{ parts: [ {path: 'LDTableModel>RemWfDays'}, {path: 'LDTableModel>RemWfHour'} ], formatter: '.fnformatSLADays' }"-->
+												<!--			class="cl_tablecolTxt"/>-->
+												<!--	</uitable:template>-->
+												<!--</uitable:Column>-->
+												<!--<uitable:Column class="cl_maxField">-->
+												<!--	<Label text="{i18n>EscDays}"/>-->
+												<!--	<uitable:template class="cl_maxField">-->
+												<!--		<Label text="{ parts: [ {path: 'LDTableModel>EscWfDays'}, {path: 'LDTableModel>EscWfHour'} ], formatter: '.fnformatSLADays' }"-->
+												<!--			class="cl_tablecolTxt"/>-->
+												<!--	</uitable:template>-->
+												<!--</uitable:Column>-->
+											</uitable:columns>
+										</uitable:Table>
+									</VBox>
+									<VBox class="cl_GdBox sapUiSmallMarginTop">
+										<HBox class="sapUiTinyMarginTop sapUiSmallMarginBeginEnd" justifyContent="SpaceBetween">
+											<Text text="{i18n>AgentAssignment}" class="cl_headerlabel"/>
+											<HBox>
+												<Image id="AddImage2" src="{= ${JM_ImageModel>/path} + 'icon11.svg'}" width="1.1rem" class="cl_AddDelete sapUiTinyMarginEnd"
+													press=".onAddAARow" tooltip="Add Agent Details"/>
+												<Image id="DelImage2" src="{= ${JM_ImageModel>/path} + 'minus1.svg'}" width="1.1rem" class="cl_AddDelete" press=".ondeleteAA"
+													tooltip="Remove Agent Details"/>
+											</HBox>
+										</HBox>
+										<uitable:Table id="id_Agent" rows="{ path: 'AATableModel>/tableDataAA', templateShareable: true }" selectionMode="Single"
+											enableSelectAll="true" ariaLabelledBy="tableTitle" visibleRowCount="4" rowSelectionChange="onAASelectionChange"
+											class="sapUiSmallMarginBeginEnd sapUiTinyMarginTop sapUiSmallMarginBottom cl_uiTable" >
+											<uitable:noData>
+												<VBox alignItems="Center" justifyContent="Center">
+													<Image src="{= ${JM_ImageModel>/path} + 'Nodatafound.gif'}" width="100px" height="100px"/>
+													<Text text="{i18n>NoDataFound}"/>
+												</VBox>
+											</uitable:noData>
+											<uitable:columns>
+												<uitable:Column>
+													<Label text="{i18n>Active}"/>
+													<uitable:template>
+														<HBox height="1.5rem">
+															<CheckBox class="cl_checkboxstyle cl_check sapUiSizeCompact" selected="{AATableModel>Active}"
+																editable="{= ${viewModel>/isEditable} &amp;&amp; ${AATableModel>isRowEditable} }" select="onActiveSelect"></CheckBox>
+														</HBox>
+													</uitable:template>
+												</uitable:Column>
+												<uitable:Column >
+													<Label text="{i18n>StartDate}"/>
+													<uitable:template>
+														<VBox class="cl_sttabInput ">
+															<Text text="{path: 'AATableModel>StartDate', formatter: '.formatDate'}" class="cl_tablecolTxt"
+																visible="{= !${AATableModel>isNew} || ${AATableModel>LvlFromLD} === 'L0' }"/>
+															<Text text="{AATableModel>StartDate}" class="cl_tablecolTxt"/>
+														</VBox>
+													</uitable:template>
+												</uitable:Column>
+												<uitable:Column>
+													<Label text="{i18n>EndDate}"/>
+													<uitable:template>
+														<DatePicker editable="{= ${viewModel>/isEditable} &amp;&amp; ${AATableModel>Lvl} !== 'L0' }"
+															value="{path: 'AATableModel>EndDate', type: 'sap.ui.model.type.Date', formatOptions: { pattern: 'dd.MM.yyyy', strictParsing: true }}"
+															displayFormat="dd.MM.yyyy" valueFormat="dd.MM.yyyy" placeholder=" " class="cl_tt_input1 cl_datePicker cl_icon cl_uwlText cl_tabInput"
+															change="onEndDateChange"/>
+													</uitable:template>
+												</uitable:Column>
+												<uitable:Column>
+													<Label text="{i18n>Agent}"/>
+													<uitable:template>
+														<Input id="ID_AGENT_INPUT" value="{AATableModel>Agent}"
+															editable="{= ${viewModel>/isEditable} &amp;&amp; ${AATableModel>LvlFromLD} !== 'L0' }"
+															class="cl_tabInput cl_tt_input cl_gdInput " showValueHelp="true" valueHelpRequest="fngetAgents" valueHelpOnly="true"/>
+													</uitable:template>
+												</uitable:Column>
+												<uitable:Column>
+													<Label text="{i18n>Name}"/>
+													<uitable:template>
+														<Label text="{AATableModel>Name}" class="cl_tablecolTxt "/>
+													</uitable:template>
+												</uitable:Column>
+												<!--<uitable:Column>-->
+												<!--	<Label text="{i18n>Variant}"/>-->
+												<!--	<uitable:template>-->
+												<!--		<Input id="ID_VARIANT_INPUT" value="{AATableModel>Variant}" editable="{= ${viewModel>/isEditable} }" valueHelpRequest="onVariantOpen"-->
+												<!--			showValueHelp="true" valueHelpOnly="true" class="cl_tabInput cl_tt_input cl_gdInput"/>-->
+												<!--	</uitable:template>-->
+												<!--</uitable:Column>-->
+											</uitable:columns>
+										</uitable:Table>
+									</VBox>
+									<layoutData>
+										<grid:GridData span="L8 M12 S12"/>
+									</layoutData>
+								</VBox>
+							</grid:Grid>
+							<!--</HBox>-->
+						</grid:Grid>
+					</VBox>
+				</content>
+			</Page>
+		</pages>
+	</App>
+</mvc:View>

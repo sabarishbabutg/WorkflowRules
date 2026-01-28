@@ -1,0 +1,21 @@
+<core:FragmentDefinition xmlns="sap.m" xmlns:core="sap.ui.core" xmlns:t="sap.ui.table">
+	<TableSelectDialog id="agentF4Table" title="Select Agent" class="sapUiPopupWithPadding sapUiSizeCompact cl_uiTable cl_MaterialFrom cl_TabDialog"
+		items="{F4HelpAgentModel>/List}" search="fnAgentSearchs" confirm="fnAgentConfirm" cancel="fnAgentConfirm" liveChange="fnAgentSearchs">
+		<columns>
+			<Column width="200px">
+				<Label text="{i18n>AgentID}"/>
+			</Column>
+			<Column width="150px">
+				<Label text="{i18n>AgentName}"/>
+			</Column>
+		</columns>
+		<items>
+			<ColumnListItem>
+				<cells>
+					<Text text="{F4HelpAgentModel>Value1}"/>
+					<Text text="{F4HelpAgentModel>Value2}"/>
+				</cells>
+			</ColumnListItem>
+		</items>
+	</TableSelectDialog>
+</core:FragmentDefinition>

@@ -1,0 +1,18 @@
+<core:FragmentDefinition xmlns="sap.m" xmlns:core="sap.ui.core">
+	<Dialog title="Confirmation popup" showHeader="false" class="cl_confirmationDialog sapUiSizeCompact">
+		<customHeader>
+			<Toolbar class="cl_ConfirmationToolbar" height="2.5rem">
+				<ToolbarSpacer/>
+				<Text text="{JM_Confirm>/headerText}" class="cl_ConfirmationTitle sapUiTinyMarginTopBottom"/>
+				<ToolbarSpacer/>
+			</Toolbar>
+		</customHeader>
+		<HBox width="100%" justifyContent="Center">
+			<Text text="{JM_Confirm>/confirmationText}" class="sapUiSmallMargin cl_confirmationTxt"></Text>
+		</HBox>
+		<buttons>
+			<Button text="{JM_Confirm>/positiveText}" icon="{= ${JM_ImageModel>/path} + ${JM_Confirm>/positiveIcon} }" class="cl_PrimaryBtn cl_iconBtn sapUiSmallMarginEnd" press="fnConfirmSubmit"/>
+			<Button text="{JM_Confirm>/negativeText}" icon="{= ${JM_ImageModel>/path} + ${JM_Confirm>/negativeIcon} }" class="cl_SecondaryBtn cl_iconBtn sapUiSmallMarginEnd" press="fnConfirmExit"/>
+		</buttons>
+	</Dialog>
+</core:FragmentDefinition>

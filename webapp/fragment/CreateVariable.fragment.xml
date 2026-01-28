@@ -1,0 +1,112 @@
+<core:FragmentDefinition xmlns="sap.m" xmlns:core="sap.ui.core" xmlns:t="sap.ui.table" xmlns:grid="sap.ui.layout">
+	<Dialog id="idManageViewsDialog" class="cl_CreatevarViewDialog sapUiSizeCompact " stretch="false" horizontalScrolling="false"
+		verticalScrolling="true" contentWidth="50rem" contentHeight="auto" draggable="true" resizable="false">
+		<customHeader>
+			<Bar>
+				<contentMiddle>
+					<Text text="{i18n>Views}" class="cl_hdr"/>
+				</contentMiddle>
+			</Bar>
+		</customHeader>
+		<VBox class=" sapUiSmallMarginTopBottom" width="100%">
+			<grid:Grid hSpacing="1" defaultSpan="L12 M12 S12">
+				<VBox>
+					<Label text="{i18n>varName}" class="cl_label"/>
+					<VBox width="100%">
+						<Input id="ID_VAR" placeholder="{i18n>varName}" maxLength="40" class="cl_input" liveChange="onChangeVar" change="onChangeVariantName"/>
+					</VBox>
+					<layoutData>
+						<grid:GridData span="L3 M12 S12"/>
+					</layoutData>
+				</VBox>
+				<VBox>
+					<Label class="cl_label"/>
+					<VBox width="100%">
+						<Input id="ID_VARIANT_F4" placeholder="Select Variant" showValueHelp="true" valueHelpOnly="true" valueHelpRequest=".onVariantF4Open"
+							class="cl_input"/>
+					</VBox>
+					<layoutData>
+						<grid:GridData span="L3 M12 S12"/>
+					</layoutData>
+				</VBox>
+				<VBox>
+					<Label/>
+					<HBox width="100%">
+						<Button icon="{= ${JM_ImageModel>/path} + 'Save.svg'}" class="sapUiTinyMarginBegin cl_CVDeleteBtn " press="onOpenSave" tooltip="{i18n>SV}"/>
+						<Button icon="{= ${JM_ImageModel>/path} + 'f1.svg'}" class="sapUiTinyMarginBegin cl_CVDeleteBtn " press="onModifyvariant"
+							tooltip="{i18n>EV}"/>
+						<Button icon="{= ${JM_ImageModel>/path} + 'del.svg'}" class="sapUiTinyMarginBegin cl_CVDeleteBtn " press="onDeleteVariant"
+							tooltip="{i18n>DV}"/>
+					</HBox>
+					<layoutData>
+						<grid:GridData span="L2 M12 S12"/>
+					</layoutData>
+				</VBox>
+			</grid:Grid>
+		</VBox>
+		<VBox id="ID_CREATE_VAR" height="100%">
+	
+			<grid:Grid hSpacing="1" defaultSpan="L12 M12 S12">
+				<VBox>
+					<t:Table id="idVariantTable" rows="{WFViewModel>/variants}" selectionMode="Single" selectionBehavior="Row" visibleRowCount="9"
+						enableSelectAll="false" class="sapUiSmallMarginBottom cl_uiTable " columnHeaderHeight="25" rowHeight="32"
+						rowSelectionChange=".onVariantRowSelection">
+						<t:columns>
+							<t:Column>
+								<t:label>
+									<Label text="{i18n>Variants}"/>
+								</t:label>
+								<t:template>
+									<Text text="{WFViewModel>Variant}" class="cl_tablecolTxt"/>
+								</t:template>
+							</t:Column>
+						</t:columns>
+					</t:Table>
+					<layoutData>
+						<grid:GridData span="L4 M12 S12"/>
+					</layoutData>
+				</VBox>
+				<VBox>
+					<t:Table id="idVariantsTable" rows="{WFViewModel>/views}" selectionMode="None" selectionBehavior="RowSelector" visibleRowCount="9"
+						enableSelectAll="true" class="sapUiSmallMarginBottom cl_uiTable cl_VarTabVSB" columnHeaderHeight="25" rowHeight="30">
+						<t:columns>
+							<t:Column width="20%">
+								<t:label>
+									<Label text="{i18n>SelectViews}"/>
+								</t:label>
+								<t:template>
+									<CheckBox selected="{WFViewModel>Active}" editable="{WFViewModel>Editable}" select=".onSelectCheckbox" class=" cl_checkbox"/>
+								</t:template>
+							</t:Column>
+							<t:Column width="20%">
+								<t:label>
+									<Label text="{i18n>ReadOnly}"/>
+								</t:label>
+								<t:template>
+									<CheckBox selected="{WFViewModel>ReadOnly}" editable="{WFViewModel>Editable}" select=".onReadOnlySelect" class=" cl_checkbox"/>
+								</t:template>
+							</t:Column>
+							<t:Column>
+								<t:label>
+									<Label text="{i18n>ViewName}"/>
+								</t:label>
+								<t:template>
+									<Text text="{WFViewModel>ViewName}" class="cl_tablecolTxt"/>
+								</t:template>
+							</t:Column>
+						</t:columns>
+					</t:Table>
+					<layoutData>
+						<grid:GridData span="L8 M12 S12"/>
+					</layoutData>
+				</VBox>
+			</grid:Grid>
+		
+		</VBox>
+		<Bar class="cl_mvFooter">
+			<contentMiddle>
+				<Button text="{i18n>Close}" icon="{= ${JM_ImageModel>/path} + 'cancel.svg'}" class="cl_SecondaryBtn sapUiSizeCompact" press="onCancelCreateVar"/>
+			</contentMiddle>
+		</Bar>
+	</Dialog>
+</core:FragmentDefinition>

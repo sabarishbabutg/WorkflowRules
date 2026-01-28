@@ -1,0 +1,7 @@
+<core:FragmentDefinition xmlns="sap.m" xmlns:core="sap.ui.core">
+	<SelectDialog title="{JM_VALUEHELP>/Label1}" class="sapUiPopupWithPadding sapUiSizeCompact cl_MaterialFrom " items="{JM_VALUEHELP>/List}"
+		search="fn_GetValueHelpSearch" liveChange="fn_GetValueHelpSearch" cancel="fn_GetValueHelpConfirm" confirm="fn_GetValueHelpConfirm">
+		
+		<StandardListItem title="{ path: 'JM_VALUEHELP>', formatter: '.formatValueHelpItem' }"/>
+	</SelectDialog>
+</core:FragmentDefinition>
