@@ -59,7 +59,7 @@
 											class="cl_MassBtn sapUiSizeCompact sapUiSmallMarginEnd" press=".onEditRow" tooltip="{i18n>Chge}" enabled="false"/>
 									</HBox>
 									<uitable:Table id="id_ResultTable" rows="{GDTableModel>/GDTableData}" selectionMode="Single" enableSelectAll="true" selectionBehavior="Row"
-										class="sapUiSmallMarginBeginEnd cl_uiTable" rowSelectionChange=".onRowSelectionChange" visibleRowCountMode="Fixed"
+										class="sapUiSmallMarginBeginEnd cl_uiTable sapUiSmallMarginBottom" rowSelectionChange=".onRowSelectionChange" visibleRowCountMode="Fixed"
 										visibleRowCount="10">
 										<uitable:noData>
 											<VBox alignItems="Center" justifyContent="Center">
